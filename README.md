@@ -1,6 +1,6 @@
-#Java eind project 2019
+# Java eind project 2019
 
-##School Planner
+## School Planner
 
 Student die zich kan inloggen/registreren
 - Gevolgde klassen kan bekijken
