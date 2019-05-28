@@ -1,4 +1,4 @@
-package login;
+package Views;
 
 public class User {
     private String firstName;

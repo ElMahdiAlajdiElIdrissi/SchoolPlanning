@@ -1,12 +1,7 @@
-package login;
+package Views;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -37,16 +32,16 @@ public class LoginController {
 
     @FXML
     private void registerAction(ActionEvent ev) throws IOException {
-        ((Stage) register.getScene().getWindow()).setScene(SceneManager.getRegisterScene());
+        ((Stage) register.getScene().getWindow()).setScene(Views.SceneManager.getRegisterScene());
     }
 
     public void cancelRegistration(ActionEvent ev) throws IOException {
-        ((Stage) cancelRegistration.getScene().getWindow()).setScene(SceneManager.getLoginScene());
+        ((Stage) cancelRegistration.getScene().getWindow()).setScene(Views.SceneManager.getLoginScene());
     }
 
     public void createUser(ActionEvent ev) throws IOException {
         if (passWord.getText().equals(confirmPassWord.getText())) {
-            User user = new User(firstName.getText(), lastName.getText(), userName.getText(), passWord.getText());
+            Views.User user = new Views.User(firstName.getText(), lastName.getText(), userName.getText(), passWord.getText());
             System.out.println(user);
         } else {
             System.out.println("Password must be the same");
