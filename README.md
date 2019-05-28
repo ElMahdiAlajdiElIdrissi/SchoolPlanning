@@ -8,3 +8,9 @@ Student die zich kan inloggen/registreren
 - Data’s bekijken voor opkomende lesmomenten met klaslokalen(enkel voor aangemelde cursussen)
 - Search engine op cursus, docenten.
 - Sorting method op cursusnaam, docenten, (filter)
+
+## Make the database
+- Open MySQL workbench
+- Connect to your local instance
+- Make a new schema called "schoolplanning"
+- Run the query that's stated in the databasescript.txt file

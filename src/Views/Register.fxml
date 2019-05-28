@@ -8,7 +8,7 @@
 
 <Group xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Views.LoginController">
+            fx:controller="login.LoginController">
     <VBox layoutX="25" layoutY="25" spacing="20">
         <Label text="First name: "/>
         <Label text="Last name: "/>
@@ -18,15 +18,15 @@
     </VBox>
 
     <VBox layoutX="150" layoutY="25" spacing="10">
-        <TextField promptText="First name" prefWidth="200"/>
-        <TextField promptText="Last name" prefWidth="200"/>
-        <TextField promptText="Username" prefWidth="200"/>
-        <PasswordField promptText="Password" prefWidth="200"/>
-        <PasswordField promptText="Confirm password" prefWidth="200"/>
+        <TextField fx:id="firstName" promptText="First name" prefWidth="200"/>
+        <TextField fx:id="lastName" promptText="Last name" prefWidth="200"/>
+        <TextField fx:id="userName" promptText="Username" prefWidth="200"/>
+        <PasswordField fx:id="passWord" promptText="Password" prefWidth="200"/>
+        <PasswordField fx:id="confirmPassWord" promptText="Confirm password" prefWidth="200"/>
     </VBox>
 
     <HBox layoutX="190" layoutY="200" spacing="10">
-        <Button text="Create" prefWidth="75"/>
-        <Button text="Cancel" prefWidth="75"/>
+        <Button fx:id="createUser" text="Create" prefWidth="75" onAction="#createUser"/>
+        <Button fx:id="cancelRegistration" text="Cancel" prefWidth="75" onAction="#cancelRegistration"/>
     </HBox>
 </Group>
