@@ -33,10 +33,9 @@ CREATE TABLE IF NOT EXISTS `Student` (
 )ENGINE=InnoDB DEFAULT CHARSET='utf8';
 
 CREATE TABLE IF NOT EXISTS `IngeschrevenCursussen` (
-    Id int(11) NOT NULL,
     Cursus_Id int(11) NOT NULL,
     Student_Id int(11) NOT NULL,
-    Primary key (Id),
+    Primary key (Cursus_Id, Student_Id),
     Foreign key (Cursus_Id) references Cursus(Id),
     Foreign key (Student_Id) references Student(Id)
 )ENGINE=InnoDB DEFAULT CHARSET='utf8';
