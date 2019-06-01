@@ -29,6 +29,7 @@ public class BackEndCode {
                     PreparedStatement statement1 = conn.prepareStatement(SCRIPT.substring(firstIndex, lastIndex).concat(";"));
             ) {
                 statement1.execute();
+
             } catch (SQLException se) {
                 se.printStackTrace();
             }
