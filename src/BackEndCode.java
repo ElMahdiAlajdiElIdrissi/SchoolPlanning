@@ -5,18 +5,25 @@ import java.nio.file.Paths;
 import java.sql.*;
 import java.util.List;
 import java.util.Scanner;
+import dao.Student;
+import dao.StudentDao;
 
 public class BackEndCode {
     private static int counter = 0;
 
     public static void main(String[] args) throws SQLException{
         databaseConnection("databasescript.txt");
+        
+        StudentDao studentDao = new StudentDao("jdbc:mysql://localhost/SchoolPlanner?serverTimezone=UTC","root", "Desrath1990");
+        Student student = studentDao.getStudentByID(1);
+
+        System.out.println(student.getFirstName() + " " + student.getLastName());
     }
 
     public static void databaseConnection(String textFile){
         final String URL = "jdbc:mysql://localhost/SchoolPlanner?serverTimezone=UTC";
         final String USERNAME = "root";
-        final String PASSWORD = "root";
+        final String PASSWORD = "Desrath1990";
         final String SCRIPT = databaseStartUp(textFile);
 
         String[] queries = SCRIPT.split(";");

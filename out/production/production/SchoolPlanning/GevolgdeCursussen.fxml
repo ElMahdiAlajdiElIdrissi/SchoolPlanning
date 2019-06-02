@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Button?>
+
+<FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="SchoolappController">
+    <Button fx:id="back" text="Home" onAction="#back"/>
+    <TableView fx:id="table">
+        <columns>
+            <TableColumn text="Time" maxWidth="35">
+            </TableColumn>
+            <TableColumn text="Monday">
+            </TableColumn>
+            <TableColumn text="Tuesday">
+            </TableColumn>
+            <TableColumn text="Wednesday">
+            </TableColumn>
+            <TableColumn text="Thursday">
+            </TableColumn>
+            <TableColumn text="Friday">
+            </TableColumn>
+        </columns>
+    </TableView>
+</FlowPane>

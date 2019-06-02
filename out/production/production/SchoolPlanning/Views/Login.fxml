@@ -9,7 +9,7 @@
 <?import javafx.geometry.Insets?>
 <Group xmlns="http://javafx.com/javafx"
        xmlns:fx="http://javafx.com/fxml"
-       fx:controller="Views.LoginController">
+       fx:controller="views.LoginController">
     <VBox layoutX="25" layoutY="25" spacing="20">
         <Label text="Username: "/>
         <Label text="Password: "/>

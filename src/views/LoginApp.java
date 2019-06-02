@@ -1,4 +1,4 @@
-package Views;
+package views;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +15,7 @@ public class LoginApp extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         primaryStage.setTitle("Login");
-        primaryStage.setScene(Views.SceneManager.getLoginScene());
+        primaryStage.setScene(SceneManagerViews.getLoginScene());
         primaryStage.show();
     }
 }
