@@ -20,7 +20,7 @@
             <ScrollPane>
                 <content>
                     <ImageView>
-                        <Image url="@../DataModel.PNG"/>
+                        <Image url="backGround.jpg"/>
 
                     </ImageView>
                 </content>
