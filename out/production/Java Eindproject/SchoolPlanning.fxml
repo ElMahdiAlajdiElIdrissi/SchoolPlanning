@@ -7,11 +7,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="Controller">
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="SchoolappController">
     <Text text="Welcome"/>
     <BorderPane>
         <left>
-            <VBox spacing="5">
+            <VBox>
                 <Button fx:id="gevolgdeCursussen" text="Gevolgde Cursussen" maxWidth="200" onAction="#clickedOnGevolgdeCursussen"/>
                 <Button fx:id="inschrijvenCursussen" text="Inschrijven cursussen" maxWidth="200" onAction="#clickedOnInchrijvenCursussen"/>
             </VBox>
