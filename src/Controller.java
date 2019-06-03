@@ -50,6 +50,12 @@ public class Controller {
     private Button goBackButton;
 
     @FXML
+    private Button gevolgdeCursussen;
+
+    @FXML
+    private Button inschrijvenCursussen;
+
+    @FXML
     private void registerAction(ActionEvent ev) throws IOException {
         ((Stage) register.getScene().getWindow()).setScene(SceneManager.getRegisterScene());
     }
@@ -85,12 +91,25 @@ public class Controller {
         ((Stage) confirmButton.getScene().getWindow()).setScene(SceneManager.getSchoolPlanningScene());
     }
 
-    public void back(ActionEvent actionEvent) throws IOException {
-        ((Stage) back.getScene().getWindow()).setScene(SceneManager.getSchoolPlanningScene());
-    }
 
     public void goBack(ActionEvent actionEvent) throws IOException {
         ((Stage) goBackButton.getScene().getWindow()).setScene(SceneManager.getLoginScene());
+    }
+
+
+    @FXML
+    private void clickedOnGevolgdeCursussen(ActionEvent ev) throws IOException {
+        ((Stage) gevolgdeCursussen.getScene().getWindow()).setScene(SceneManager.getGevolgdeCursussenScene());
+    }
+
+    @FXML
+    private void clickedOnInchrijvenCursussen(ActionEvent ev) throws IOException {
+        ((Stage) inschrijvenCursussen.getScene().getWindow()).setScene(SceneManager.getInschrijvenCursussen());
+    }
+
+    @FXML
+    private void back(ActionEvent ev) throws IOException {
+        ((Stage) back.getScene().getWindow()).setScene(SceneManager.getSchoolPlanningScene());
     }
 }
 
