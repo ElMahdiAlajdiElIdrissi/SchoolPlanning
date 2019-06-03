@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Group xmlns="http://javafx.com/javafx"
+       xmlns:fx="http://javafx.com/fxml"
+       fx:controller="Controller">
+    <VBox centerShape="true" layoutX="50" layoutY="50" spacing="20">
+        <Label text="Invalid username or password"/>
+    </VBox>
+
+    <HBox layoutX="150" layoutY="100" spacing="10">
+        <Button fx:id="goBackButton" text="OK" prefWidth="75" onAction="#goBack"/>
+    </HBox>
+</Group>

@@ -17,6 +17,9 @@ public class Controller {
     private Button back;
 
     @FXML
+    private Button login;
+
+    @FXML
     private Button confirmButton;
 
     @FXML
@@ -75,11 +78,11 @@ public class Controller {
 
     public void loginAction(ActionEvent ev) throws IOException {
         if (userNameLogin.getText().equals(passWordLogin.getText())) {
-            ((Stage) register.getScene().getWindow()).setScene(SceneManager.getSuccesfullLogin());
+            ((Stage) login.getScene().getWindow()).setScene(SceneManager.getSuccesfullLogin());
             System.out.println("Login succesfull!");
         } else {
             System.out.println("Invalid username or password");
-            ((Stage) register.getScene().getWindow()).setScene(SceneManager.getInvalidMessage());
+            ((Stage) login.getScene().getWindow()).setScene(SceneManager.getInvalidMessage());
         }
     }
 
