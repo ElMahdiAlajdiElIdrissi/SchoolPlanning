@@ -9,15 +9,15 @@
 <?import javafx.geometry.Insets?>
 <Group xmlns="http://javafx.com/javafx"
        xmlns:fx="http://javafx.com/fxml"
-       fx:controller="views.LoginController">
+       fx:controller="Controller">
     <VBox layoutX="25" layoutY="25" spacing="20">
         <Label text="Username: "/>
         <Label text="Password: "/>
     </VBox>
 
     <VBox layoutX="100" layoutY="25" spacing="10">
-        <TextField promptText="Username" prefWidth="200"/>
-        <PasswordField promptText="Password" prefWidth="200"/>
+        <TextField fx:id="userNameLogin" promptText="Username" prefWidth="200"/>
+        <PasswordField fx:id="passWordLogin" promptText="Password" prefWidth="200"/>
     </VBox>
 
     <HBox layoutX="140" layoutY="100" spacing="10">
