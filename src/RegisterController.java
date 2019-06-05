@@ -50,20 +50,21 @@ public class RegisterController {
             PreparedStatement stmt2 = conn.prepareStatement(sql2)){
 
             stmt.setString(1,un);
-            ResultSet rs = stmt.executeQuery();
 
-            if(rs.getFetchSize()>0){
-                System.out.println("Error: User exists");
-            }else{
-                if(pw.equals(cpw)){
-                    stmt2.setInt(1,a.size()+1);
-                    stmt2.setString(2,fn);
-                    stmt2.setString(3,ln);
-                    stmt2.setString(4,un);
-                    stmt2.setString(5,pw);
-                    stmt2.executeQuery();
+            try(ResultSet rs = stmt.executeQuery()){
+                if(rs.next()){
+                    System.out.println("Error: User exists");
                 }else{
-                    System.out.println("Error: passwords do not match");
+                    if(pw.equals(cpw)){
+                        stmt2.setInt(1,a.size()+1);
+                        stmt2.setString(2,fn);
+                        stmt2.setString(3,ln);
+                        stmt2.setString(4,un);
+                        stmt2.setString(5,pw);
+                        stmt2.executeUpdate();
+                    }else{
+                        System.out.println("Error: passwords do not match");
+                    }
                 }
             }
         }catch(SQLException ex){

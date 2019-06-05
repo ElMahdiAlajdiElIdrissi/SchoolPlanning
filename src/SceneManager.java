@@ -8,42 +8,42 @@ public class SceneManager {
 
 
     public static Scene getSchoolPlanningScene() throws IOException {
-        Parent root = FXMLLoader.load(SchoolApp.class.getResource("SchoolPlanning.fxml"));
+        Parent root = FXMLLoader.load(SchoolApp.class.getResource("views/SchoolPlanning.fxml"));
         return new Scene(root, 425, 350);
     }
 
     public static Scene getGevolgdeCursussenScene() throws IOException {
-        Parent root = FXMLLoader.load(SchoolApp.class.getResource("GevolgdeCursussen.fxml"));
+        Parent root = FXMLLoader.load(SchoolApp.class.getResource("views/GevolgdeCursussen.fxml"));
         return new Scene(root, 500, 450);
     }
 
     public static Scene getInschrijvenCursussen() throws IOException {
-        Parent root = FXMLLoader.load(SchoolApp.class.getResource("InschrijvenCursussen.fxml"));
+        Parent root = FXMLLoader.load(SchoolApp.class.getResource("views/InschrijvenCursussen.fxml"));
         return new Scene(root, 490, 300);
     }
 
     public static Scene getLoginScene() throws IOException {
         Parent root = FXMLLoader.load(SchoolApp.class.getResource(
-                "Login.fxml"));
+                "views/Login.fxml"));
         return new Scene(root, 350, 150);
     }
 
     public static Scene getRegisterScene() throws IOException {
         Parent root = FXMLLoader.load(SchoolApp.class.getResource(
-                "Register.fxml"));
+                "views/Register.fxml"));
         return new Scene(root, 400, 250);
     }
 
     public static Scene getSuccesfullLogin() throws IOException {
         Parent root = FXMLLoader.load(SchoolApp.class.getResource(
-                "DialogBox.fxml"));
+                "views/DialogBox.fxml"));
 
         return new Scene(root, 250, 150);
     }
 
     public static Scene getInvalidMessage() throws IOException {
         Parent root = FXMLLoader.load(SchoolApp.class.getResource(
-                "InvalidLogin.fxml"));
+                "views/InvalidLogin.fxml"));
         return new Scene(root, 250, 150);
     }
 }
