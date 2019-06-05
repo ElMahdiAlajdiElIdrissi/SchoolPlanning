@@ -6,9 +6,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import java.net.URL?>
 <Group xmlns="http://javafx.com/javafx"
        xmlns:fx="http://javafx.com/fxml"
        fx:controller="InvalidLoginController">
+
+    <stylesheets>
+        <URL value="@InvalidLoginStyling.css"/>
+    </stylesheets>
+
     <VBox centerShape="true" layoutX="50" layoutY="50" spacing="20">
         <Label text="Invalid username or password"/>
     </VBox>

@@ -1,0 +1,9 @@
+.button{
+    -fx-color: #ADD8E6;
+    -fx-border-radius: 50;
+    -fx-background-radius: 20;
+}
+
+.button:hover{
+    -fx-font-weight: bold;
+}

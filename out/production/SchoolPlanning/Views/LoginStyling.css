@@ -1,33 +1,22 @@
-#loginButton {
+.button{
     -fx-color: #ADD8E6;
     -fx-border-radius: 50;
     -fx-background-radius: 20;
 }
 
-#registerButton {
-    -fx-color: #ADD8E6;
-    -fx-border-radius: 50;
-    -fx-background-radius: 20;
-}
-
-#userNameLabel {
+.label{
     -fx-font-weight: bold;
 }
 
-#passwordLabel {
-    -fx-font-weight: bold;
-}
-
-#userNameTextField {
+.text-field{
     -fx-border-radius: 50;
     -fx-background-radius: 22;
 }
 
-#passWordTextField {
-    -fx-border-radius: 50;
-    -fx-background-radius: 22;
+.button:hover{
+    -fx-font-weight: bold;
 }
 
 .root {
-    -fx-background-color:lightgray;
+    fx-background-color: red;
 }

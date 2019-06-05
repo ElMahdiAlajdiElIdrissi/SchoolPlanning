@@ -6,27 +6,33 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import java.net.URL?>
 <Group xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="RegisterController">
+       xmlns:fx="http://javafx.com/fxml"
+       fx:controller="RegisterController">
+
+    <stylesheets>
+        <URL value="@RegisterStyling.css"/>
+    </stylesheets>
+
     <VBox layoutX="25" layoutY="25" spacing="20">
-        <Label text="First name: "/>
-        <Label text="Last name: "/>
-        <Label text="Username: "/>
-        <Label text="Password: "/>
-        <Label text="Confirm password: "/>
+        <Label id="firstNameLabel" text="First name: "/>
+        <Label id="lastNameLabel" text="Last name: "/>
+        <Label id="userNameLabel" text="Username: "/>
+        <Label id="passWordLabel" text="Password: "/>
+        <Label id="confirmPassWordLabel" text="Confirm password: "/>
     </VBox>
 
     <VBox layoutX="150" layoutY="25" spacing="10">
-        <TextField fx:id="firstName" promptText="First name" prefWidth="200"/>
-        <TextField fx:id="lastName" promptText="Last name" prefWidth="200"/>
-        <TextField fx:id="userName" promptText="Username" prefWidth="200"/>
-        <PasswordField fx:id="passWord" promptText="Password" prefWidth="200"/>
-        <PasswordField fx:id="confirmPassWord" promptText="Confirm password" prefWidth="200"/>
+        <TextField id="firstNameTextField" fx:id="firstName" promptText="First name" prefWidth="200"/>
+        <TextField id="lastNameTextField" fx:id="lastName" promptText="Last name" prefWidth="200"/>
+        <TextField id="userNameTextField"  fx:id="userName" promptText="Username" prefWidth="200"/>
+        <PasswordField id="passWordTextField" fx:id="passWord" promptText="Password" prefWidth="200"/>
+        <PasswordField id="confirmPassWordTextField"  fx:id="confirmPassWord" promptText="Confirm password" prefWidth="200"/>
     </VBox>
 
     <HBox layoutX="190" layoutY="200" spacing="10">
-        <Button fx:id="createUser" text="Create" prefWidth="75" onAction="#createUser"/>
-        <Button fx:id="cancelRegistration" text="Cancel" prefWidth="75" onAction="#cancelRegistration"/>
+        <Button id="creatUserButton" fx:id="createUser" text="Create" prefWidth="75" onAction="#createUser"/>
+        <Button id="cancelRegistrationButton" fx:id="cancelRegistration" text="Cancel" prefWidth="75" onAction="#cancelRegistration"/>
     </HBox>
 </Group>
