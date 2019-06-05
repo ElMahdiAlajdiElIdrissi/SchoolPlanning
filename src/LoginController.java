@@ -25,7 +25,7 @@ public class LoginController {
         DataBase db = new DataBase();
         String un = userNameLogin.getText().trim();
         String pw = passWordLogin.getText().trim();
-        String sql = "select Gebruikers_Naam, Passwoord from Student where Gebruikers_Naam=? and Passwoord=?";
+        String sql = "select Id, Gebruikers_Naam, Passwoord from Student where Gebruikers_Naam=? and Passwoord=?";
 
         try(Connection conn = DriverManager.getConnection(db.getURL(), db.getUSERNAME(), db.getPASSWORD());
             PreparedStatement st = conn.prepareStatement(sql)){
@@ -34,6 +34,7 @@ public class LoginController {
             ResultSet rs = st.executeQuery();
             int count = 0;
             while(rs.next()){
+                GlobalVars.setStudentId(rs.getInt("Id"));
                 count++;
             }
             if(count==1){

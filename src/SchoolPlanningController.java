@@ -4,6 +4,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.*;
 
 public class SchoolPlanningController {
 
@@ -15,6 +16,18 @@ public class SchoolPlanningController {
 
     @FXML
     private void clickedOnGevolgdeCursussen(ActionEvent ev) throws IOException {
+        DataBase db = new DataBase();
+        try(Connection conn = DriverManager.getConnection(db.getURL(), db.getUSERNAME(), db.getPASSWORD());
+            PreparedStatement stm = conn.prepareStatement("SELECT cursus.Naam_Cursus from ingeschrevencursussen join cursus on ingeschrevencursussen.Cursus_Id = cursus.Id where Student_Id = ?;")){
+            stm.setInt(1, GlobalVars.getStudentId());
+            ResultSet rs = stm.executeQuery();
+            while(rs.next()){
+                System.out.println(rs.getString(1));
+            }
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+
         ((Stage) gevolgdeCursussen.getScene().getWindow()).setScene(SceneManager.getGevolgdeCursussenScene());
     }
 
