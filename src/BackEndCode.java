@@ -1,5 +1,5 @@
-import dao.Student;
-import dao.StudentDao;
+import Models.Entities.Student;
+import Models.Dao.StudentDao;
 
 import java.sql.SQLException;
 import java.util.Scanner;
