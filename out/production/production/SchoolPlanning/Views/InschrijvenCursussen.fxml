@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<?import javafx.scene.control.Label?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="Controller">
+    <top>
+        <HBox layoutX="20" layoutY="20" spacing="20">
+
+
+            <Button fx:id="back" text="Home " onAction="#back"/>
+            <Text text=" Voor welke les wil je inschrijven."/>
+            <ChoiceBox prefWidth="200"/>
+
+        </HBox>
+    </top>
+    <center>
+        <VBox layoutX="150" layoutY="150" spacing="10">
+            <Label text="om te confirmeren vul je gebruikersnaam en wachtwoord in."/>
+            <TextField fx:id="textFieldGebruikersnaam" promptText="Gebruikersnaam:" maxWidth="200"/>
+            <TextField fx:id="textFieldWachtwoord" promptText="Wachtwoord" maxWidth="200"/>
+        </VBox>
+
+    </center>
+
+</BorderPane>
