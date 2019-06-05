@@ -1,19 +1,19 @@
-package Models.Dao;
+package models.dao;
 
-import Models.Entities.Student;
+import models.entities.Docent;
 
 import java.sql.*;
 
-public class StudentDao {
+public class DocentDao {
     private String url;
     private String user;
     private String password;
 
-    public StudentDao() {
+    public DocentDao() {
 
     }
 
-    public StudentDao(String url, String user, String password) {
+    public DocentDao(String url, String user, String password) {
         this.url = url;
         this.user = user;
         this.password = password;
@@ -43,19 +43,18 @@ public class StudentDao {
         this.password = password;
     }
 
-    public Student getStudentByID(int id) throws SQLException {
+    public Docent getDocentByID(int id) throws SQLException {
         try (Connection conn = getConnection();
-             PreparedStatement statement = conn.prepareStatement("SELECT * FROM student WHERE Id = ?")) {
+             PreparedStatement statement = conn.prepareStatement("SELECT * FROM docent WHERE Id = ?")) {
             statement.setInt(1, id);
             try (ResultSet result = statement.executeQuery()) {
                 if (result.next()) {
-                    Student student = new Student();
-                    student.setId(id);
-                    student.setFirstName(result.getString("First_Name"));
-                    student.setLastName(result.getString("Last_Name"));
-                    student.setGebruikersNaam(result.getString("Gebruikers_Naam"));
-                    student.setPassword(result.getString("Passwoord"));
-                    return student;
+                    Docent docent = new Docent();
+                    docent.setId(id);
+                    docent.setVoorNaam(result.getString("Voor_Naam"));
+                    docent.setAchterNaam(result.getString("Achter_Naam"));
+                    docent.setDepartementID(result.getInt("Departement_Id"));
+                    return docent;
                 } else {
                     return null;
                 }
@@ -65,14 +64,13 @@ public class StudentDao {
         }
     }
 
-    public void updateStudent(Student student) throws SQLException {
+    public void updateDocent(Docent docent) throws SQLException {
         try (Connection conn = getConnection();
-             PreparedStatement statement = conn.prepareStatement("UPDATE student SET First_Name=?, Last_Name=?, Gebruikers_Naam=?, Passwoord=? WHERE Id=? ")) {
-            statement.setString(1, student.getFirstName());
-            statement.setString(2, student.getLastName());
-            statement.setString(3, student.getGebruikersNaam());
-            statement.setString(4, student.getPassword());
-            statement.setInt(5, student.getId());
+             PreparedStatement statement = conn.prepareStatement("UPDATE docent SET Voor_Naam=?, Achter_Naam=?, Departement_Id=? WHERE Id=? ")) {
+            statement.setString(1, docent.getVoorNaam());
+            statement.setString(2, docent.getAchterNaam());
+            statement.setInt(3,docent.getDepartementID());
+            statement.setInt(4, docent.getId());
             statement.executeUpdate();
         } catch (SQLException se) {
             throw new SQLException("Something went wrong");
@@ -83,4 +81,3 @@ public class StudentDao {
         return DriverManager.getConnection(url, user, password);
     }
 }
-

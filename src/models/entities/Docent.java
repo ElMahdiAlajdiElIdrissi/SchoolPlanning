@@ -1,4 +1,4 @@
-package Models.Entities;
+package models.entities;
 
 import java.io.Serializable;
 

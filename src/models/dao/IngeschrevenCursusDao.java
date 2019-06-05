@@ -1,19 +1,19 @@
-package Models.Dao;
+package models.dao;
 
-import Models.Entities.Docent;
+import models.entities.IngeschrevenCursus;
 
 import java.sql.*;
 
-public class DocentDao {
+public class IngeschrevenCursusDao {
     private String url;
     private String user;
     private String password;
 
-    public DocentDao() {
+    public IngeschrevenCursusDao() {
 
     }
 
-    public DocentDao(String url, String user, String password) {
+    public IngeschrevenCursusDao(String url, String user, String password) {
         this.url = url;
         this.user = user;
         this.password = password;
@@ -43,18 +43,16 @@ public class DocentDao {
         this.password = password;
     }
 
-    public Docent getDocentByID(int id) throws SQLException {
+    public IngeschrevenCursus getIngeschrevenCursusByID(int id) throws SQLException {
         try (Connection conn = getConnection();
-             PreparedStatement statement = conn.prepareStatement("SELECT * FROM docent WHERE Id = ?")) {
+             PreparedStatement statement = conn.prepareStatement("SELECT * FROM ingeschrevencursussen WHERE Id = ?")) {
             statement.setInt(1, id);
             try (ResultSet result = statement.executeQuery()) {
                 if (result.next()) {
-                    Docent docent = new Docent();
-                    docent.setId(id);
-                    docent.setVoorNaam(result.getString("Voor_Naam"));
-                    docent.setAchterNaam(result.getString("Achter_Naam"));
-                    docent.setDepartementID(result.getInt("Departement_Id"));
-                    return docent;
+                    IngeschrevenCursus cursus = new IngeschrevenCursus();
+                    cursus.setCursusID(id);
+                    cursus.setStudentID(result.getInt("Student_Id"));
+                    return cursus;
                 } else {
                     return null;
                 }
@@ -64,13 +62,11 @@ public class DocentDao {
         }
     }
 
-    public void updateDocent(Docent docent) throws SQLException {
+    public void updateIngeschrevenCursus(IngeschrevenCursus cursus) throws SQLException {
         try (Connection conn = getConnection();
-             PreparedStatement statement = conn.prepareStatement("UPDATE docent SET Voor_Naam=?, Achter_Naam=?, Departement_Id=? WHERE Id=? ")) {
-            statement.setString(1, docent.getVoorNaam());
-            statement.setString(2, docent.getAchterNaam());
-            statement.setInt(3,docent.getDepartementID());
-            statement.setInt(4, docent.getId());
+             PreparedStatement statement = conn.prepareStatement("UPDATE ingeschrevencursussen SET Student_Id=? WHERE Cursus_Id=? ")) {
+            statement.setInt(1, cursus.getStudentID());
+            statement.setInt(2, cursus.getCursusID());
             statement.executeUpdate();
         } catch (SQLException se) {
             throw new SQLException("Something went wrong");
@@ -81,3 +77,4 @@ public class DocentDao {
         return DriverManager.getConnection(url, user, password);
     }
 }
+

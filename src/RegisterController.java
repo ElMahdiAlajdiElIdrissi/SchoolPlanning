@@ -4,8 +4,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import models.dao.StudentDao;
+import models.entities.Student;
 
 import java.io.IOException;
+import java.sql.*;
+import java.util.List;
 
 public class RegisterController {
     @FXML
@@ -30,11 +34,40 @@ public class RegisterController {
 
 
     public void createUser(ActionEvent ev) throws IOException {
-        if (passWord.getText().equals(confirmPassWord.getText())) {
-            User user = new User(firstName.getText(), lastName.getText(), userName.getText(), passWord.getText());
-            System.out.println(user);
-        } else {
-            System.out.println("Password must be the same");
+        DataBase db = new DataBase();
+        StudentDao sdao = new StudentDao(db.getURL(), db.getUSERNAME(), db.getPASSWORD());
+        List<Student> a = sdao.getAllStudents();
+        String un = userName.getText().trim();
+        String fn = firstName.getText().trim();
+        String ln = lastName.getText().trim();
+        String pw = passWord.getText().trim();
+        String cpw = confirmPassWord.getText().trim();
+        String sql = "select Gebruikers_Naam from Student where Gebruikers_Naam=?";
+        String sql2 = "insert ignore into student(Id, First_Name , Last_Name, Gebruikers_Naam, Passwoord) VALUES (?, ?, ?, ?, ?)";
+
+        try(Connection conn = DriverManager.getConnection(db.getURL(), db.getUSERNAME(), db.getPASSWORD());
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            PreparedStatement stmt2 = conn.prepareStatement(sql2)){
+
+            stmt.setString(1,un);
+            ResultSet rs = stmt.executeQuery();
+
+            if(rs.getFetchSize()>0){
+                System.out.println("Error: User exists");
+            }else{
+                if(pw.equals(cpw)){
+                    stmt2.setInt(1,a.size()+1);
+                    stmt2.setString(2,fn);
+                    stmt2.setString(3,ln);
+                    stmt2.setString(4,un);
+                    stmt2.setString(5,pw);
+                    stmt2.executeQuery();
+                }else{
+                    System.out.println("Error: passwords do not match");
+                }
+            }
+        }catch(SQLException ex){
+            ex.printStackTrace();
         }
     }
 

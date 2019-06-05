@@ -1,6 +1,6 @@
-package Models.Dao;
+package models.dao;
 
-import Models.Entities.Cursus;
+import models.entities.Cursus;
 
 import java.sql.*;
 

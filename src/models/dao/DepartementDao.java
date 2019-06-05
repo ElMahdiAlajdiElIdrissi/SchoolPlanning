@@ -1,19 +1,19 @@
-package Models.Dao;
+package models.dao;
 
-import Models.Entities.ToegewezenCursus;
+import models.entities.Departement;
 
 import java.sql.*;
 
-public class ToegewezenCursusDao {
+public class DepartementDao {
     private String url;
     private String user;
     private String password;
 
-    public ToegewezenCursusDao() {
+    public DepartementDao() {
 
     }
 
-    public ToegewezenCursusDao(String url, String user, String password) {
+    public DepartementDao(String url, String user, String password) {
         this.url = url;
         this.user = user;
         this.password = password;
@@ -43,16 +43,16 @@ public class ToegewezenCursusDao {
         this.password = password;
     }
 
-    public ToegewezenCursus getToegewezenCursusByID(int id) throws SQLException {
+    public Departement getDepartementByID(int id) throws SQLException {
         try (Connection conn = getConnection();
-             PreparedStatement statement = conn.prepareStatement("SELECT * FROM toegewezencursus WHERE Id = ?")) {
+             PreparedStatement statement = conn.prepareStatement("SELECT * FROM departement WHERE Id = ?")) {
             statement.setInt(1, id);
             try (ResultSet result = statement.executeQuery()) {
                 if (result.next()) {
-                    ToegewezenCursus cursus = new ToegewezenCursus();
-                    cursus.setCursusID(id);
-                    cursus.setDocentID(result.getInt("Docent_Id"));
-                    return cursus;
+                    Departement departement = new Departement();
+                    departement.setId(id);
+                    departement.setDepartementNaam(result.getString("Departement_Naam"));
+                    return departement;
                 } else {
                     return null;
                 }
@@ -62,11 +62,11 @@ public class ToegewezenCursusDao {
         }
     }
 
-    public void updateToegewezenCursus(ToegewezenCursus cursus) throws SQLException {
+    public void updateDepartement(Departement departement) throws SQLException {
         try (Connection conn = getConnection();
-             PreparedStatement statement = conn.prepareStatement("UPDATE toegewezencursus SET Docent_Id WHERE Cursus_Id=? ")) {
-            statement.setInt(1, cursus.getDocentID());
-            statement.setInt(2, cursus.getCursusID());
+             PreparedStatement statement = conn.prepareStatement("UPDATE departement SET Departement_Naam=? WHERE Id=? ")) {
+            statement.setString(1, departement.getDepartementNaam());
+            statement.setInt(2, departement.getId());
             statement.executeUpdate();
         } catch (SQLException se) {
             throw new SQLException("Something went wrong");
@@ -77,4 +77,3 @@ public class ToegewezenCursusDao {
         return DriverManager.getConnection(url, user, password);
     }
 }
-

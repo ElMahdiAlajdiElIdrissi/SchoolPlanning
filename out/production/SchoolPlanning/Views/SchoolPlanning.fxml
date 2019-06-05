@@ -22,7 +22,7 @@
             <ScrollPane>
                 <content>
                     <ImageView>
-                        <Image url="backGround.jpg"/>
+                        <Image url="@backGround.jpg"/>
 
                     </ImageView>
                 </content>
