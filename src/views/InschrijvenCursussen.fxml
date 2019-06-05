@@ -12,6 +12,7 @@
 
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="SchoolPlanningController">
     <top>
         <HBox layoutX="20" layoutY="20" spacing="20">
@@ -27,7 +28,7 @@
         <VBox layoutX="150" layoutY="150" spacing="10">
             <Label text="om te confirmeren vul je gebruikersnaam en wachtwoord in."/>
             <TextField fx:id="textFieldGebruikersnaam" promptText="Gebruikersnaam:" maxWidth="200"/>
-            <TextField fx:id="textFieldWachtwoord" promptText="Wachtwoord" maxWidth="200"/>
+            <PasswordField fx:id="textFieldWachtwoord" promptText="Wachtwoord" maxWidth="200"/>
         </VBox>
 
     </center>
