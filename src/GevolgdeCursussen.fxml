@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.TextField?>
 
-<FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="Controller">
+<FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="SchoolPlanningController">
     <ToolBar>
         <Button fx:id="back" text="Home" onAction="#back"/>
 

@@ -12,7 +12,7 @@
 
 
 <?import javafx.scene.control.Label?>
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="Controller">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="SchoolPlanningController">
     <top>
         <HBox layoutX="20" layoutY="20" spacing="20">
 

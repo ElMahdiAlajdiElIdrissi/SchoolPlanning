@@ -9,12 +9,12 @@ public class SceneManager {
 
     public static Scene getSchoolPlanningScene() throws IOException {
         Parent root = FXMLLoader.load(SchoolApp.class.getResource("SchoolPlanning.fxml"));
-        return new Scene(root, 400, 250);
+        return new Scene(root, 425, 350);
     }
 
     public static Scene getGevolgdeCursussenScene() throws IOException {
         Parent root = FXMLLoader.load(SchoolApp.class.getResource("GevolgdeCursussen.fxml"));
-        return new Scene(root, 430, 250);
+        return new Scene(root, 500, 450);
     }
 
     public static Scene getInschrijvenCursussen() throws IOException {
@@ -33,6 +33,7 @@ public class SceneManager {
                 "Register.fxml"));
         return new Scene(root, 400, 250);
     }
+
     public static Scene getSuccesfullLogin() throws IOException {
         Parent root = FXMLLoader.load(SchoolApp.class.getResource(
                 "DialogBox.fxml"));

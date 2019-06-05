@@ -7,21 +7,26 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.geometry.Insets?>
+
+<?import java.net.URL?>
 <Group xmlns="http://javafx.com/javafx"
        xmlns:fx="http://javafx.com/fxml"
-       fx:controller="Controller">
+       fx:controller="LoginController">
+    <stylesheets>
+        <URL value="@Styling.css"/>
+    </stylesheets>
     <VBox layoutX="25" layoutY="25" spacing="20">
-        <Label text="Username: "/>
-        <Label text="Password: "/>
+        <Label id="userNameLabel" text="Username: "/>
+        <Label id="passwordLabel" text="Password: "/>
     </VBox>
 
     <VBox layoutX="100" layoutY="25" spacing="10">
-        <TextField fx:id="userNameLogin" promptText="Username" prefWidth="200"/>
-        <PasswordField fx:id="passWordLogin" promptText="Password" prefWidth="200"/>
+        <TextField id="userNameTextField" fx:id="userNameLogin" promptText="Username" prefWidth="200"/>
+        <PasswordField id="passWordTextField" fx:id="passWordLogin" promptText="Password" prefWidth="200"/>
     </VBox>
 
     <HBox layoutX="140" layoutY="100" spacing="10">
-        <Button fx:id="register" text="Register" prefWidth="75" onAction="#registerAction"/>
-        <Button fx:id="login" text="Login" prefWidth="75" onAction="#loginAction"/>
+        <Button id="registerButton" fx:id="register" text="Register" prefWidth="75" onAction="#registerAction"/>
+        <Button id="loginButton" fx:id="login" text="Login" prefWidth="75" onAction="#loginAction"/>
     </HBox>
 </Group>

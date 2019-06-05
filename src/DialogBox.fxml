@@ -8,7 +8,7 @@
 
 <Group xmlns="http://javafx.com/javafx"
        xmlns:fx="http://javafx.com/fxml"
-       fx:controller="Controller">
+       fx:controller="DialogBoxController">
     <VBox centerShape="true" layoutX="75" layoutY="50" spacing="20">
         <Label text="Login Succesful!"/>
     </VBox>
