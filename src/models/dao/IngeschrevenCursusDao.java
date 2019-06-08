@@ -1,8 +1,11 @@
 package models.dao;
 
+import models.entities.Cursus;
 import models.entities.IngeschrevenCursus;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class IngeschrevenCursusDao {
     private String url;
@@ -71,6 +74,44 @@ public class IngeschrevenCursusDao {
         } catch (SQLException se) {
             throw new SQLException("Something went wrong");
         }
+    }
+
+    public List<IngeschrevenCursus> getAllIngeschrevenCursussen(int studentId){
+        List<IngeschrevenCursus> s = new ArrayList<>();
+        try(Connection conn = getConnection();
+            PreparedStatement stm = conn.prepareStatement("select * from ingeschrevencursussen where Student_Id = ?;")){
+            stm.setInt(1,studentId);
+            ResultSet rs = stm.executeQuery();
+            while(rs.next()){
+                IngeschrevenCursus ic = new IngeschrevenCursus();
+                ic.setCursusID(rs.getInt("Cursus_Id"));
+                ic.setStudentID(rs.getInt("Student_Id"));
+                s.add(ic);
+            }
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return s;
+    }
+
+    public List<Cursus> getAllNietIngeschrevenCursussen(int id){
+        List<Cursus> s = new ArrayList<>();
+        try(Connection conn = getConnection();
+            PreparedStatement stm = conn.prepareStatement("select Id, Naam_Cursus from cursus where Id <> all(select Cursus_Id from ingeschrevencursussen where ingeschrevencursussen.Student_Id = ?);")){
+
+            stm.setInt(1, id);
+            ResultSet rs = stm.executeQuery();
+            while(rs.next()){
+                Cursus c = new Cursus();
+                c.setId(rs.getInt(1));
+                c.setNaamCursus(rs.getString(2));
+                s.add(c);
+            }
+
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return s;
     }
 
     private Connection getConnection() throws SQLException {

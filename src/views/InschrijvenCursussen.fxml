@@ -13,22 +13,21 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="SchoolPlanningController">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="InschrijvenCursussenController">
     <top>
         <HBox layoutX="20" layoutY="20" spacing="20">
-
-
             <Button fx:id="back" text="Home " onAction="#back"/>
             <Text text=" Voor welke les wil je inschrijven."/>
-            <ChoiceBox prefWidth="200"/>
+            <ChoiceBox fx:id="choiceBox" prefWidth="200"/>
 
         </HBox>
     </top>
     <center>
         <VBox layoutX="150" layoutY="150" spacing="10">
             <Label text="om te confirmeren vul je gebruikersnaam en wachtwoord in."/>
-            <TextField fx:id="textFieldGebruikersnaam" promptText="Gebruikersnaam:" maxWidth="200"/>
-            <PasswordField fx:id="textFieldWachtwoord" promptText="Wachtwoord" maxWidth="200"/>
+            <TextField fx:id="Gebruikersnaam" promptText="Gebruikersnaam:" maxWidth="200"/>
+            <PasswordField fx:id="Wachtwoord" promptText="Wachtwoord" maxWidth="200"/>
+            <Button fx:id="confirm" text="Schrijf in" onAction="#registerCourse"/>
         </VBox>
 
     </center>

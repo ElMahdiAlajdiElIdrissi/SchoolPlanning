@@ -12,9 +12,6 @@ public class SchoolPlanningController {
     private Button gevolgdeCursussen;
 
     @FXML
-    private Button back;
-
-    @FXML
     private void clickedOnGevolgdeCursussen(ActionEvent ev) throws IOException {
         DataBase db = new DataBase();
         try(Connection conn = DriverManager.getConnection(db.getURL(), db.getUSERNAME(), db.getPASSWORD());
@@ -32,15 +29,18 @@ public class SchoolPlanningController {
     }
 
     @FXML
-    private void back(ActionEvent ev) throws IOException {
-        ((Stage) back.getScene().getWindow()).setScene(SceneManager.getSchoolPlanningScene());
-    }
-
-    @FXML
     private Button inschrijvenCursussen;
 
     @FXML
     private void clickedOnInchrijvenCursussen(ActionEvent ev) throws IOException {
         ((Stage) inschrijvenCursussen.getScene().getWindow()).setScene(SceneManager.getInschrijvenCursussen());
+    }
+
+    @FXML
+    private Button back;
+
+    @FXML
+    private void back(ActionEvent ev) throws IOException {
+        ((Stage) back.getScene().getWindow()).setScene(SceneManager.getSchoolPlanningScene());
     }
 }
