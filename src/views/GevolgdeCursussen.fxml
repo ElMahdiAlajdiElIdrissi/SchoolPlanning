@@ -8,23 +8,24 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.TextField?>
 
+<?import javafx.scene.control.TextArea?>
 <FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="SchoolPlanningController">
     <ToolBar>
         <Button fx:id="back" text="Home" onAction="#back"/>
 
         <HBox spacing="20">
 
-            <TextField fx:id="searchField" promptText="Zoek op Leraar of op cursus" prefWidth="200"/>
+            <TextField fx:id="searchField" promptText="Zoek op Leraar of op cursus" prefWidth="200" />
         </HBox>
-        <Button fx:id="search" text="Search"/>
+        <Button fx:id="search" text="Search" onAction="#searchDocentOrCursus"/>
     </ToolBar>
 
     <TableView fx:id="table">
-        <columns>
+      <!--  <columns>
             <TableColumn text="Time" maxWidth="35">
 
             </TableColumn>
-            <TableColumn text="Monday">
+            <TableColumn fx:id="Monday" text="Monday">
             </TableColumn>
             <TableColumn text="Tuesday">
             </TableColumn>
@@ -34,6 +35,6 @@
             </TableColumn>
             <TableColumn text="Friday">
             </TableColumn>
-        </columns>
+        </columns>-->
     </TableView>
 </FlowPane>

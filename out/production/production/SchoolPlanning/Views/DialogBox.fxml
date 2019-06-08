@@ -6,9 +6,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import java.net.URL?>
 <Group xmlns="http://javafx.com/javafx"
        xmlns:fx="http://javafx.com/fxml"
-       fx:controller="Controller">
+       fx:controller="DialogBoxController">
+
+
+    <stylesheets>
+        <URL value="@DialogBoxStyling.css"/>
+    </stylesheets>
+
     <VBox centerShape="true" layoutX="75" layoutY="50" spacing="20">
         <Label text="Login Succesful!"/>
     </VBox>

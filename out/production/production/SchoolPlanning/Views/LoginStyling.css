@@ -1,0 +1,22 @@
+.button{
+    -fx-color: #ADD8E6;
+    -fx-border-radius: 50;
+    -fx-background-radius: 20;
+}
+
+.label{
+    -fx-font-weight: bold;
+}
+
+.text-field{
+    -fx-border-radius: 50;
+    -fx-background-radius: 22;
+}
+
+.button:hover{
+    -fx-font-weight: bold;
+}
+
+.root {
+    fx-background-color: red;
+}
