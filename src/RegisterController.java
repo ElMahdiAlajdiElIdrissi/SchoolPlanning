@@ -1,15 +1,26 @@
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 import models.dao.StudentDao;
 import models.entities.Student;
 
+import java.awt.*;
 import java.io.IOException;
 import java.sql.*;
 import java.util.List;
+import java.util.Optional;
 
 public class RegisterController {
     @FXML
@@ -17,6 +28,7 @@ public class RegisterController {
 
     @FXML
     private Button createUser;
+
     @FXML
     private TextField firstName;
 
@@ -53,7 +65,8 @@ public class RegisterController {
 
             try(ResultSet rs = stmt.executeQuery()){
                 if(rs.next()){
-                    System.out.println("Error: User exists");
+//                    System.out.println("Error: User exists");
+                    SceneManager.alertError("That user already exits!");
                 }else{
                     if(pw.equals(cpw)){
                         stmt2.setInt(1,a.size()+1);
@@ -62,8 +75,9 @@ public class RegisterController {
                         stmt2.setString(4,un);
                         stmt2.setString(5,pw);
                         stmt2.executeUpdate();
-                    }else{
-                        System.out.println("Error: passwords do not match");
+                    }else {
+//                        System.out.println("Error: passwords do not match");
+                       SceneManager.alertError("Please enter matching passwords!");
                     }
                 }
             }

@@ -1,8 +1,11 @@
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class SceneManager {
 
@@ -45,5 +48,16 @@ public class SceneManager {
         Parent root = FXMLLoader.load(SchoolApp.class.getResource(
                 "views/InvalidLogin.fxml"));
         return new Scene(root, 250, 150);
+    }
+
+    public static void alertError(String text){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("ERROR");
+        alert.setHeaderText("Something went wrong");
+        alert.setContentText(text);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            ButtonType button = result.get();
+        }
     }
 }

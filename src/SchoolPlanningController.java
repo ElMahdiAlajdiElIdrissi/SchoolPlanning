@@ -18,10 +18,9 @@ public class SchoolPlanningController {
     private TextField searchField;
 
     @FXML
-    private TableColumn monday;
-
-    @FXML
     private ListView table;
+
+    private StringBuilder enlistedCourses = new StringBuilder();
 
     @FXML
     private void clickedOnGevolgdeCursussen(ActionEvent ev) throws IOException {
@@ -31,7 +30,8 @@ public class SchoolPlanningController {
             stm.setInt(1, GlobalVars.getStudentId());
             ResultSet rs = stm.executeQuery();
             while(rs.next()){
-                System.out.println(rs.getString(1));
+                enlistedCourses.append(rs.getString(1) + " ");
+//                System.out.println(rs.getString(1));
             }
         }catch(SQLException ex){
             ex.printStackTrace();
@@ -60,6 +60,11 @@ public class SchoolPlanningController {
                 for (int i = 1; i <= columnCount; i++) {
                     docentAndCursus.add(rs.getString(i) + " ");
                 }
+            }
+            if (docentAndCursus.isEmpty()) {
+                SceneManager.alertError("The teacher/course you were looking for doesn't exist");
+                docentAndCursus.add("These are the courses you already enlisted in: ");
+                docentAndCursus.add(enlistedCourses.toString());
             }
             table.setItems(docentAndCursus);
 

@@ -39,9 +39,9 @@ public class LoginController {
             }
             if(count==1){
                 ((Stage) login.getScene().getWindow()).setScene(SceneManager.getSuccesfullLogin());
-                System.out.println("Login succesfull!");
+//                System.out.println("Login succesfull!");
             }else{
-                System.out.println("Invalid username or password");
+//                System.out.println("Invalid username or password");
                 ((Stage) login.getScene().getWindow()).setScene(SceneManager.getInvalidMessage());
             }
         }catch(SQLException ex){
