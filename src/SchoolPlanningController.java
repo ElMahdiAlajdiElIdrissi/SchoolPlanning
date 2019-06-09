@@ -2,10 +2,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -24,7 +21,7 @@ public class SchoolPlanningController {
     private TableColumn monday;
 
     @FXML
-    private TableView table;
+    private ListView table;
 
     @FXML
     private void clickedOnGevolgdeCursussen(ActionEvent ev) throws IOException {
@@ -47,7 +44,6 @@ public class SchoolPlanningController {
     private void searchDocentOrCursus(ActionEvent event)throws IOException {
         DataBase db = new DataBase();
         String search = searchField.getText().trim();
-        String result = "";
         String queryDocent = "SELECT DISTINCT Voor_Naam, Achter_Naam, Naam_Cursus, Start_Datum, Eind_Datum FROM Docent " +
                 "INNER JOIN Cursus ON docent.id = cursus.id WHERE Voor_Naam=? OR Achter_Naam=? OR Naam_Cursus=?;";
 
@@ -62,16 +58,10 @@ public class SchoolPlanningController {
             while(rs.next()) {
                 int columnCount = rs.getMetaData().getColumnCount();
                 for (int i = 1; i <= columnCount; i++) {
-                    result += rs.getString(i);
-                    /*monday.setCellValueFactory(new PropertyValueFactory<String, String>(rs.getString(i) == null? " " : rs.getString(i)));*/
                     docentAndCursus.add(rs.getString(i) + " ");
                 }
             }
-            TableColumn extraView = new TableColumn();
-            extraView.setText("Your search yielded following results: ");
-            extraView.setCellValueFactory(new PropertyValueFactory<>(result));
             table.setItems(docentAndCursus);
-            table.getColumns().addAll(extraView);
 
         } catch (SQLException ex) {
             ex.printStackTrace();

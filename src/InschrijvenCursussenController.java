@@ -43,7 +43,7 @@ public class InschrijvenCursussenController implements Initializable {
                 String naam = rs.getString("Naam_Cursus");
                 choices.add(naam);
             }
-            choiceBox.setItems(choices);
+            choiceBox.getItems().addAll(choices);
         } catch (SQLException se) {
             se.printStackTrace();
         }

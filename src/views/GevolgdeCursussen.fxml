@@ -9,6 +9,7 @@
 <?import javafx.scene.control.TextField?>
 
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ListView?>
 <FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="SchoolPlanningController">
     <ToolBar>
         <Button fx:id="back" text="Home" onAction="#back"/>
@@ -20,7 +21,7 @@
         <Button fx:id="search" text="Search" onAction="#searchDocentOrCursus"/>
     </ToolBar>
 
-    <TableView fx:id="table">
+    <ListView fx:id="table">
       <!--  <columns>
             <TableColumn text="Time" maxWidth="35">
 
@@ -36,5 +37,5 @@
             <TableColumn text="Friday">
             </TableColumn>
         </columns>-->
-    </TableView>
+    </ListView>
 </FlowPane>
