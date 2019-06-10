@@ -55,7 +55,7 @@ public class RegisterController {
         String pw = passWord.getText().trim();
         String cpw = confirmPassWord.getText().trim();
         String sql = "select Gebruikers_Naam from Student where Gebruikers_Naam=?";
-        String sql2 = "insert ignore into student(Id, First_Name , Last_Name, Gebruikers_Naam, Passwoord) VALUES (?, ?, ?, ?, ?)";
+        String sql2 = "insert ignore into student(First_Name , Last_Name, Gebruikers_Naam, Passwoord) VALUES (?, ?, ?, ?)";
 
         try(Connection conn = DriverManager.getConnection(db.getURL(), db.getUSERNAME(), db.getPASSWORD());
             PreparedStatement stmt = conn.prepareStatement(sql);
@@ -65,15 +65,13 @@ public class RegisterController {
 
             try(ResultSet rs = stmt.executeQuery()){
                 if(rs.next()){
-//                    System.out.println("Error: User exists");
                     SceneManager.alertError("That user already exits!");
                 }else{
                     if(pw.equals(cpw)){
-                        stmt2.setInt(1,a.size()+1);
-                        stmt2.setString(2,fn);
-                        stmt2.setString(3,ln);
-                        stmt2.setString(4,un);
-                        stmt2.setString(5,pw);
+                        stmt2.setString(1,fn);
+                        stmt2.setString(2,ln);
+                        stmt2.setString(3,un);
+                        stmt2.setString(4,pw);
                         stmt2.executeUpdate();
                     }else {
 //                        System.out.println("Error: passwords do not match");

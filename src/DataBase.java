@@ -11,8 +11,8 @@ import java.util.List;
 public class DataBase {
     final String URL = "jdbc:mysql://localhost/SchoolPlanner?serverTimezone=UTC";
     final String USERNAME = "root";
-    //final String PASSWORD = "Desrath1990";
-    final String PASSWORD = "root";
+    final String PASSWORD = "Desrath1990";
+//    final String PASSWORD = "root";
 
     public DataBase() {
     }
@@ -61,4 +61,29 @@ public class DataBase {
             }
         }
     }
+
+    /*   private static String sortData(String sortOnWhat) {
+        String giveBack = "SELECT ".concat(sortOnWhat).concat(" from Beers order by ").concat(sortOnWhat);
+        if (counter < 2) {
+            switch (counter) {
+                case 0:
+                    giveBack.concat(" asc");
+                    counter++;
+                    break;
+                case 1:
+                    giveBack.concat(" desc");
+                    counter++;
+                    break;
+            }
+        } else {
+            counter = 0;
+        }
+        return giveBack;
+    }*/
+
+   /* private static String dataInput(){
+        System.out.println("Please type the columnname of what you'd like sorted");
+        Scanner keyboard = new Scanner(System.in);
+        return keyboard.nextLine();
+    }*/
 }

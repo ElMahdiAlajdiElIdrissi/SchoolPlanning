@@ -5,7 +5,11 @@ import javafx.scene.Parent;
 import javafx.stage.Stage;
 
 public class SchoolApp extends Application {
+
     public static void main(String[] args) {
+        DataBase db = new DataBase();
+        db.executeScript("databasescript.txt");
+        db.executeScript("InsertIntoDatabase.txt");
         launch(args);
     }
 
