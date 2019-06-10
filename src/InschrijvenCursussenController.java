@@ -75,7 +75,7 @@ public class InschrijvenCursussenController implements Initializable {
         String sql = "select Id, Gebruikers_Naam, Passwoord from Student where Id=? and Gebruikers_Naam=? and Passwoord=?";
         String sql2 = "insert ignore into ingeschrevencursussen(Student_Id, Cursus_Id) VALUES (?, ?)";
 
-        if(!course.isEmpty() && !gn.isEmpty() && !ww.isEmpty() ){
+        if(course != null && gn != null && ww != null ){
             try(Connection conn = DriverManager.getConnection(db.getURL(), db.getUSERNAME(), db.getPASSWORD());
                 PreparedStatement stmt = conn.prepareStatement(sql);
                 PreparedStatement stmt2 = conn.prepareStatement(sql2)){
