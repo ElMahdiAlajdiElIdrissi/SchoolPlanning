@@ -12,9 +12,9 @@ public class SchoolApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("views/Login.fxml"));
-        primaryStage.setTitle("Login");
-        primaryStage.setScene(SceneManager.getLoginScene());
+        Parent root = FXMLLoader.load(getClass().getResource("views/Startup.fxml"));
+        primaryStage.setTitle("Choose your role");
+        primaryStage.setScene(SceneManager.getStartupScene());
         primaryStage.show();
     }
 }

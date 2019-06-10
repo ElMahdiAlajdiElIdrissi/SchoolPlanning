@@ -22,35 +22,66 @@ public class LoginController {
     private PasswordField passWordLogin;
 
     public void loginAction(ActionEvent ev) throws IOException {
-        DataBase db = new DataBase();
-        String un = userNameLogin.getText().trim();
-        String pw = passWordLogin.getText().trim();
-        String sql = "select Id, Gebruikers_Naam, Passwoord from Student where Gebruikers_Naam=? and Passwoord=?";
 
-        try(Connection conn = DriverManager.getConnection(db.getURL(), db.getUSERNAME(), db.getPASSWORD());
-            PreparedStatement st = conn.prepareStatement(sql)){
-            st.setString(1, un);
-            st.setString(2, pw);
-            ResultSet rs = st.executeQuery();
-            int count = 0;
-            while(rs.next()){
-                GlobalVars.setStudentId(rs.getInt("Id"));
-                count++;
+        if(GlobalVars.isStudentOrDocent()){
+            DataBase db = new DataBase();
+            String un = userNameLogin.getText().trim();
+            String pw = passWordLogin.getText().trim();
+            String sql = "select Id, Gebruikers_Naam, Passwoord from Student where Gebruikers_Naam=? and Passwoord=?";
+
+            try(Connection conn = DriverManager.getConnection(db.getURL(), db.getUSERNAME(), db.getPASSWORD());
+                PreparedStatement st = conn.prepareStatement(sql)){
+                st.setString(1, un);
+                st.setString(2, pw);
+                ResultSet rs = st.executeQuery();
+                int count = 0;
+                while(rs.next()){
+                    GlobalVars.setStudentId(rs.getInt("Id"));
+                    count++;
+                }
+                if(count==1){
+                    SceneManager.alertVerify("Succesfully logged in!");
+                    ((Stage) login.getScene().getWindow()).setScene(SceneManager.getSchoolPlanningScene());
+                }else{
+                    SceneManager.alertError("Invalid username or password!");
+                }
+            }catch(SQLException ex){
+                ex.printStackTrace();
             }
-            if(count==1){
-                ((Stage) login.getScene().getWindow()).setScene(SceneManager.getSuccesfullLogin());
-//                System.out.println("Login succesfull!");
-            }else{
-//                System.out.println("Invalid username or password");
-                ((Stage) login.getScene().getWindow()).setScene(SceneManager.getInvalidMessage());
-            }
-        }catch(SQLException ex){
-            ex.printStackTrace();
+        }else{
+
         }
+
     }
 
     @FXML
     private void registerAction(ActionEvent ev) throws IOException {
         ((Stage) register.getScene().getWindow()).setScene(SceneManager.getRegisterScene());
     }
+
+    @FXML
+    private Button back;
+
+    @FXML
+    private void back(ActionEvent ev) throws IOException {
+        ((Stage) back.getScene().getWindow()).setScene(SceneManager.getStartupScene());
+    }
+
+/*    @FXML
+    private GridPane group;*/
+    /*@FXML
+    private HBox buttons;
+    @FXML
+    private VBox labels;
+    @FXML
+    private VBox inputs;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        //group.setAlignment(Pos.CENTER);
+        labels.setAlignment(Pos.CENTER);
+        inputs.setAlignment(Pos.TOP_CENTER);
+        buttons.setSpacing(10);
+        buttons.setAlignment(Pos.BOTTOM_CENTER);
+    }*/
 }

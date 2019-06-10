@@ -31,6 +31,12 @@ public class SceneManager {
         return new Scene(root, 350, 150);
     }
 
+    public static Scene getStartupScene() throws IOException{
+        Parent root = FXMLLoader.load(SchoolApp.class.getResource(
+                "views/Startup.fxml"));
+        return new Scene(root, 350,150);
+    }
+
     public static Scene getRegisterScene() throws IOException {
         Parent root = FXMLLoader.load(SchoolApp.class.getResource(
                 "views/Register.fxml"));
