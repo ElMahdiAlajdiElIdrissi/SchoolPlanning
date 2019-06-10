@@ -10,7 +10,7 @@
 
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.ListView?>
-<FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="SchoolPlanningController">
+<FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="GevolgdeCursussenController">
     <ToolBar>
         <Button fx:id="back" text="Home" onAction="#back"/>
 
