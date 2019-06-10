@@ -1,21 +1,23 @@
 CREATE TABLE IF NOT EXISTS `Departement` (
-    Id int(11) NOT NULL,
-    Departement_Naam varchar(255) NOT NULL DEFAULT "YTBA",
+    Id int(11) NOT NULL AUTO_INCREMENT,
+    Departement_Naam varchar(255) NOT NULL UNIQUE DEFAULT "YTBA",
     Primary key (Id)
 )ENGINE=InnoDB DEFAULT CHARSET='utf8';
 
 CREATE TABLE IF NOT EXISTS `Docent` (
-    Id int(11) NOT NULL,
+    Id int(11) NOT NULL AUTO_INCREMENT,
     Voor_Naam varchar(255) NOT NULL,
     Achter_Naam varchar(255) NOT NULL,
     Departement_Id int(11) NOT NULL,
+    Password varchar(255) NOT NULL,
+    Gebruikers_Naam varchar(255) NOT NULL UNIQUE,
     Primary key (Id),
     Foreign key (Departement_Id) references Departement(Id)
 )ENGINE=InnoDB DEFAULT CHARSET='utf8';
 
 CREATE TABLE IF NOT EXISTS `Cursus` (
-    Id int(11) NOT NULL,
-    Naam_Cursus varchar(255) NOT NULL DEFAULT "YTBA",
+    Id int(11) NOT NULL AUTO_INCREMENT,
+    Naam_Cursus varchar(255) NOT NULL UNIQUE DEFAULT "YTBA",
     Start_Datum datetime(6) NOT NULL,
     Eind_Datum datetime(6) NOT NULL,
     Departement_Id int(11) NOT NULL,
@@ -24,10 +26,10 @@ CREATE TABLE IF NOT EXISTS `Cursus` (
 )ENGINE=InnoDB DEFAULT CHARSET='utf8';
 
 CREATE TABLE IF NOT EXISTS `Student` (
-    Id int(11),
+    Id int(11) AUTO_INCREMENT,
     First_Name varchar(255) NOT NULL,
     Last_Name varchar(255) NOT NULL,
-    Gebruikers_Naam varchar(255) NOT NULL,
+    Gebruikers_Naam varchar(255) NOT NULL UNIQUE,
     Passwoord varchar(255) NOT NULL,
     Primary key (Id)
 )ENGINE=InnoDB DEFAULT CHARSET='utf8';

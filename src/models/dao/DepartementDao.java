@@ -73,6 +73,16 @@ public class DepartementDao {
         }
     }
 
+    public void insertNewDepartement(String departementNaam) throws SQLException{
+        try (Connection conn = getConnection();
+             PreparedStatement statement = conn.prepareStatement("INSERT IGNORE INTO Departement (Departement_Naam)" +
+                     " VALUES  + (" + departementNaam + "),")){
+            statement.execute();
+        } catch (SQLException se){
+            throw new SQLException("You tried to create a new departement and failed");
+        }
+    }
+
     private Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, user, password);
     }

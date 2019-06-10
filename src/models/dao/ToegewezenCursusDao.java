@@ -73,6 +73,16 @@ public class ToegewezenCursusDao {
         }
     }
 
+    public void insertNewStudent(int docentID) throws SQLException {
+        try (Connection conn = getConnection();
+             PreparedStatement statement = conn.prepareStatement("INSERT IGNORE INTO Cursus (Docent_Id)" +
+                     " VALUES  + (" + docentID + "),")) {
+            statement.execute();
+        } catch (SQLException se) {
+            throw new SQLException("You tried to create a new 'toegewezen cursus' and failed");
+        }
+    }
+
     private Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, user, password);
     }

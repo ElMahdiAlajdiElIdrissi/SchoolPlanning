@@ -77,6 +77,16 @@ public class DocentDao {
         }
     }
 
+    public void insertNewDocent(String voorNaam, String achternaam, int iD, String password, String gebruikersNaam) throws SQLException{
+        try (Connection conn = getConnection();
+             PreparedStatement statement = conn.prepareStatement("INSERT IGNORE INTO Cursus (Voor_Naam, Achter_Naam, Departement_Id, Password, Gebruikers_Naam)" +
+                     " VALUES  + (" + voorNaam + ", " + achternaam + ", " + iD + ", " + password + ", " + gebruikersNaam + "),")){
+            statement.execute();
+        } catch (SQLException se){
+            throw new SQLException("You tried to create a new docent and failed");
+        }
+    }
+
     private Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, user, password);
     }

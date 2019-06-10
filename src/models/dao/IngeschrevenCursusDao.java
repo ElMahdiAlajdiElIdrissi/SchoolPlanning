@@ -114,6 +114,16 @@ public class IngeschrevenCursusDao {
         return s;
     }
 
+    public void insertNewIngeschrevenCursus(int studentID) throws SQLException{
+        try (Connection conn = getConnection();
+             PreparedStatement statement = conn.prepareStatement("INSERT IGNORE INTO Cursus (Student_Id)" +
+                     " VALUES  + (" + studentID + "),")){
+            statement.execute();
+        } catch (SQLException se){
+            throw new SQLException("You tried to create a new 'ingeschreven cursus' and failed");
+        }
+    }
+
     private Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, user, password);
     }
