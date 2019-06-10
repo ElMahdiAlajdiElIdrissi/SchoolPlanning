@@ -1,0 +1,17 @@
+.root{
+-fx-background-image: url("SchoolPlanning.jpg");
+-fx-background-repeat: no-repeat;
+-fx-background-size: cover;
+  }
+
+.label{
+-fx-font-family: 'Arial Black';
+-fx-text-fill: '#A52A2A';
+-fx-font-size: 20;
+}
+
+.button{
+-fx-background-color:'#708090';
+-fx-text-fill: '#A52A2A';
+-fx-font-family: 'Arial Black';
+}

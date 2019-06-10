@@ -1,41 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.Button?>
- <?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.TextField?>
-
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.ListView?>
-<FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="GevolgdeCursussenController">
-    <ToolBar>
-        <Button fx:id="back" text="Home" onAction="#back"/>
 
-        <HBox spacing="20">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="GevolgdeCursussenController">
+    <padding>
+        <Insets left="5">
 
-            <TextField fx:id="searchField" promptText="Zoek op Leraar of op cursus" prefWidth="200" />
-        </HBox>
-        <Button fx:id="search" text="Search" onAction="#searchDocentOrCursus"/>
-    </ToolBar>
+        </Insets>
+    </padding>
+    <stylesheets>
+        <URL value="@StylingHoofdPagina"/>
+    </stylesheets>
+    <top>
+        <ToolBar>
+            <Button fx:id="back" text="Home" onAction="#back"/>
 
-    <ListView fx:id="table">
-      <!--  <columns>
-            <TableColumn text="Time" maxWidth="35">
+            <HBox spacing="20">
 
-            </TableColumn>
-            <TableColumn fx:id="Monday" text="Monday">
-            </TableColumn>
-            <TableColumn text="Tuesday">
-            </TableColumn>
-            <TableColumn text="Wednesday">
-            </TableColumn>
-            <TableColumn text="Thursday">
-            </TableColumn>
-            <TableColumn text="Friday">
-            </TableColumn>
-        </columns>-->
-    </ListView>
-</FlowPane>
+                <TextField fx:id="searchField" promptText="Zoek op Leraar of op cursus" prefWidth="200"/>
+            </HBox>
+            <Button fx:id="search" text="Search" onAction="#searchDocentOrCursus"/>
+        </ToolBar>
+    </top>
+    <center>
+        <ListView fx:id="table" prefWidth="400">
+            <!--  <columns>
+                  <TableColumn text="Time" prefWidth="100">
+                </TableColumn>
+                <TableColumn text="Monday" prefWidth="300">
+                </TableColumn>
+                <TableColumn text="Tuesday" prefWidth="300">
+                </TableColumn>
+                <TableColumn text="Wednesday" prefWidth="300">
+                </TableColumn>
+                <TableColumn text="Thursday" prefWidth="300">
+                </TableColumn>
+                <TableColumn text="Friday" prefWidth="300">
+                </TableColumn>
+              </columns>-->
+        </ListView>
+    </center>
+</BorderPane>
