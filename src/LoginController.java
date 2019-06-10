@@ -22,9 +22,9 @@ public class LoginController {
     private PasswordField passWordLogin;
 
     public void loginAction(ActionEvent ev) throws IOException {
+        DataBase db = new DataBase();
 
         if(GlobalVars.isStudentOrDocent()){
-            DataBase db = new DataBase();
             String un = userNameLogin.getText().trim();
             String pw = passWordLogin.getText().trim();
             String sql = "select Id, Gebruikers_Naam, Passwoord from Student where Gebruikers_Naam=? and Passwoord=?";
@@ -49,7 +49,29 @@ public class LoginController {
                 ex.printStackTrace();
             }
         }else{
+            String un = userNameLogin.getText().trim();
+            String pw = passWordLogin.getText().trim();
+            String sql = "select Id, Gebruikers_Naam, Password from Docent where Gebruikers_Naam=? and Password=?";
 
+            try(Connection conn = DriverManager.getConnection(db.getURL(), db.getUSERNAME(), db.getPASSWORD());
+                PreparedStatement st = conn.prepareStatement(sql)){
+                st.setString(1, un);
+                st.setString(2, pw);
+                ResultSet rs = st.executeQuery();
+                int count = 0;
+                while(rs.next()){
+                    GlobalVars.setDocentId(rs.getInt("Id"));
+                    count++;
+                }
+                if(count==1){
+                    SceneManager.alertVerify("Succesfully logged in!");
+                    ((Stage) login.getScene().getWindow()).setScene(SceneManager.getDocentPlanning());
+                }else{
+                    SceneManager.alertError("Invalid username or password!");
+                }
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
         }
 
     }

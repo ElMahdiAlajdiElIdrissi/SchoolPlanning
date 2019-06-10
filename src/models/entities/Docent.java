@@ -7,6 +7,24 @@ public class Docent implements Serializable {
     private String voorNaam;
     private String achterNaam;
     private int departementID;
+    private String gebruikersNaam;
+    private String password;
+
+    public String getGebruikersNaam() {
+        return gebruikersNaam;
+    }
+
+    public void setGebruikersNaam(String gebruikersNaam) {
+        this.gebruikersNaam = gebruikersNaam;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public int getId() {
         return id;

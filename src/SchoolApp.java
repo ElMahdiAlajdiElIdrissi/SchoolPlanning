@@ -17,7 +17,7 @@ public class SchoolApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("views/Startup.fxml"));
-        primaryStage.setTitle("Choose your role");
+        primaryStage.setTitle("SchoolPlanner");
         primaryStage.setScene(SceneManager.getStartupScene());
         primaryStage.show();
     }

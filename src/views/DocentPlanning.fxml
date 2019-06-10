@@ -1,13 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-<Group xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="DocentPlanningController">
+    <VBox xmlns:fx="http://javafx.com/fxml" fx:controller="DocentPlanningController">
+        <Text text="Welcome"/>
+        <BorderPane>
+            <left>
+                <VBox spacing="5">
+                    <Button fx:id="assignedCourse" text="Assigned Courses" maxWidth="200"
+                            onAction="#assignedCourses"/>
+                    <Button fx:id="enlistedStudent" text="Enlisted Students" maxWidth="200"
+                            onAction="#enlistedStudents"/>
+                    <Button fx:id="logout" text="Logout" maxWidth="200"
+                            onAction="#logout"/>
+                </VBox>
+            </left>
+            <center>
+                <ScrollPane>
+                    <content>
+                        <ImageView>
+                            <Image url="@backGround.jpg"/>
 
-</Group>
+                        </ImageView>
+                    </content>
+                </ScrollPane>
+            </center>
+        </BorderPane>
+    </VBox>
+

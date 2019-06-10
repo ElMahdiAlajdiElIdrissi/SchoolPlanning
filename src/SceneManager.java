@@ -20,6 +20,15 @@ public class SceneManager {
         return new Scene(root, 500, 450);
     }
 
+    public static Scene getDocentAssignedCourses() throws IOException {
+        Parent root = FXMLLoader.load(SchoolApp.class.getResource("views/AssignedCourses.fxml"));
+        return new Scene(root, 500, 450);
+    }
+    public static Scene getEnlistedStudents() throws IOException {
+        Parent root = FXMLLoader.load(SchoolApp.class.getResource("views/EnlistedStudents.fxml"));
+        return new Scene(root, 500, 450);
+    }
+
     public static Scene getInschrijvenCursussen() throws IOException {
         Parent root = FXMLLoader.load(SchoolApp.class.getResource("views/InschrijvenCursussen.fxml"));
         return new Scene(root, 490, 300);
@@ -35,6 +44,12 @@ public class SceneManager {
         Parent root = FXMLLoader.load(SchoolApp.class.getResource(
                 "views/Startup.fxml"));
         return new Scene(root, 350,150);
+    }
+
+    public static Scene getDocentPlanning() throws IOException{
+        Parent root = FXMLLoader.load(SchoolApp.class.getResource(
+                "views/DocentPlanning.fxml"));
+        return new Scene(root, 425, 350);
     }
 
     public static Scene getRegisterScene() throws IOException {

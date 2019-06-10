@@ -73,7 +73,7 @@ public class GevolgdeCursussenController implements Initializable {
             stm.setInt(1, GlobalVars.getStudentId());
             ResultSet rs = stm.executeQuery();
             while(rs.next()){
-                enlistedCourses.append(rs.getString(1) + " ");
+                enlistedCourses.append(rs.getString(1) + "\n");
 //                System.out.println(rs.getString(1));
             }
         }catch(SQLException ex){
