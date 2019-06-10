@@ -16,6 +16,8 @@
                         onAction="#clickedOnGevolgdeCursussen"/>
                 <Button fx:id="inschrijvenCursussen" text="Inschrijven cursussen" maxWidth="200"
                         onAction="#clickedOnInchrijvenCursussen"/>
+                <Button fx:id="logout" text="Logout" maxWidth="200"
+                        onAction="#logout"/>
             </VBox>
         </left>
         <center>

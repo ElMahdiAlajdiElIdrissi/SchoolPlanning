@@ -24,10 +24,10 @@ public class SchoolPlanningController {
     }
 
     @FXML
-    private Button back;
+    private Button logout;
 
     @FXML
-    private void back(ActionEvent ev) throws IOException {
-        ((Stage) back.getScene().getWindow()).setScene(SceneManager.getSchoolPlanningScene());
+    private void logout(ActionEvent ev) throws IOException {
+        ((Stage) logout.getScene().getWindow()).setScene(SceneManager.getStartupScene());
     }
 }
