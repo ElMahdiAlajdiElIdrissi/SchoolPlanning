@@ -44,6 +44,7 @@ public class InschrijvenCursussenController implements Initializable {
                 choices.add(naam);
             }
             choiceBox.setItems(choices);
+            choiceBox.getSelectionModel().selectFirst();
         } catch (SQLException se) {
             se.printStackTrace();
         }
@@ -87,14 +88,17 @@ public class InschrijvenCursussenController implements Initializable {
                         stmt2.setInt(1, GlobalVars.getStudentId());
                         stmt2.setInt(2, GlobalVars.getId());
                         stmt2.executeUpdate();
+                        SceneManager.alertVerify("Successfully registered for the course");
+                        ((Stage) back.getScene().getWindow()).setScene(SceneManager.getSchoolPlanningScene());
+                    }else{
+                        SceneManager.alertError("Credentials do not match the logged in user");
                     }
                 }
-                System.out.println("Successfully registered for the course");
             }catch(SQLException ex){
                 ex.printStackTrace();
             }
         }else{
-            System.out.println("Error registering in for course...");
+            SceneManager.alertError("Error registering in for course...");
         }
     }
 }

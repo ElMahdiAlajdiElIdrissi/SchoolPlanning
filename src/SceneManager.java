@@ -60,4 +60,15 @@ public class SceneManager {
             ButtonType button = result.get();
         }
     }
+
+    public static void alertVerify(String text){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("CONFIRMATION");
+        alert.setHeaderText("Everything went ok!");
+        alert.setContentText(text);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            ButtonType button = result.get();
+        }
+    }
 }

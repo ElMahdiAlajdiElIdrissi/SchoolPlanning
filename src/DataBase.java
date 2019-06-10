@@ -11,7 +11,8 @@ import java.util.List;
 public class DataBase {
     final String URL = "jdbc:mysql://localhost/SchoolPlanner?serverTimezone=UTC";
     final String USERNAME = "root";
-    final String PASSWORD = "Desrath1990";
+    //final String PASSWORD = "Desrath1990";
+    final String PASSWORD = "root";
 
     public DataBase() {
     }
