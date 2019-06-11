@@ -14,11 +14,19 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
+/**
+ * public class which controls our AssignedCoursesFXML
+ */
 public class AssignedCoursesController implements Initializable {
 
     @FXML
     private Button back;
 
+    /**
+     * private method for the back button which will bring us back to the teachersSchedule
+     * @param ev
+     * @throws IOException
+     */
     @FXML
     private void back(ActionEvent ev) throws IOException {
         ((Stage) back.getScene().getWindow()).setScene(SceneManager.getTeacherSchedule());
@@ -29,6 +37,11 @@ public class AssignedCoursesController implements Initializable {
 
     private StringBuilder assignedCourses = new StringBuilder();
 
+    /**
+     * public method to esthablish connection to our database in order to fetch assigned courses by ID and display them immediately
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         DataBase db = new DataBase();

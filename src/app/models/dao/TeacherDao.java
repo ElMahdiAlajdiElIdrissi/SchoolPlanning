@@ -4,6 +4,9 @@ import app.models.entities.Teacher;
 
 import java.sql.*;
 
+/**
+ * Data-Access-Objects class created for AssignedCourses
+ */
 public class TeacherDao {
     private String url;
     private String user;
@@ -43,6 +46,12 @@ public class TeacherDao {
         this.password = password;
     }
 
+    /**
+     * public method for fetching a teacher's info by his ID
+     * @param id
+     * @return
+     * @throws SQLException
+     */
     public Teacher getTeacherById(int id) throws SQLException {
         try (Connection conn = getConnection();
              PreparedStatement statement = conn.prepareStatement("SELECT * FROM teacher WHERE Id = ?")) {
@@ -64,6 +73,11 @@ public class TeacherDao {
         }
     }
 
+    /**
+     * public method for updating a teacher's info
+     * @param teacher
+     * @throws SQLException
+     */
     public void updateTeacher(Teacher teacher) throws SQLException {
         try (Connection conn = getConnection();
              PreparedStatement statement = conn.prepareStatement("UPDATE teacher SET First_Name=?, Last_Name=?, Department_Id=? WHERE Id=? ")) {
@@ -77,6 +91,15 @@ public class TeacherDao {
         }
     }
 
+    /**
+     * public method for creating a new teacher's credentials
+     * @param firstName
+     * @param lastName
+     * @param id
+     * @param userName
+     * @param password
+     * @throws SQLException
+     */
     public void insertNewTeacher(String firstName, String lastName, int id, String userName, String password) throws SQLException{
         try (Connection conn = getConnection();
              PreparedStatement statement = conn.prepareStatement("INSERT IGNORE INTO course (First_Name, Last_Name, Department_Id, User_Name, Password)" +
@@ -87,6 +110,11 @@ public class TeacherDao {
         }
     }
 
+    /**
+     * private method for easy connection setup
+     * @return
+     * @throws SQLException
+     */
     private Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, user, password);
     }

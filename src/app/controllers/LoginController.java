@@ -10,6 +10,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.*;
 
+/**
+ * public class which controls our LoginFXML
+ */
 public class LoginController {
     @FXML
     private Button register;
@@ -23,6 +26,11 @@ public class LoginController {
     @FXML
     private PasswordField password;
 
+    /**
+     * public method used for login verification based on a boolean (if-else)
+     * @param ev
+     * @throws IOException
+     */
     public void loginAction(ActionEvent ev) throws IOException {
         DataBase db = new DataBase();
         String un = userName.getText().trim();
@@ -76,6 +84,11 @@ public class LoginController {
 
     }
 
+    /**
+     * private method used for progressing towards the next Scene based on a succesfull login
+     * @param ev
+     * @throws IOException
+     */
     @FXML
     private void registerAction(ActionEvent ev) throws IOException {
         ((Stage) register.getScene().getWindow()).setScene(SceneManager.getRegisterScene());
@@ -84,26 +97,13 @@ public class LoginController {
     @FXML
     private Button back;
 
+    /**
+     * private method for the back button which will bring us back to the StartUpScene
+     * @param ev
+     * @throws IOException
+     */
     @FXML
     private void back(ActionEvent ev) throws IOException {
         ((Stage) back.getScene().getWindow()).setScene(SceneManager.getStartupScene());
     }
-
-/*    @FXML
-    private GridPane group;*/
-    /*@FXML
-    private HBox buttons;
-    @FXML
-    private VBox labels;
-    @FXML
-    private VBox inputs;
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        //group.setAlignment(Pos.CENTER);
-        labels.setAlignment(Pos.CENTER);
-        inputs.setAlignment(Pos.TOP_CENTER);
-        buttons.setSpacing(10);
-        buttons.setAlignment(Pos.BOTTOM_CENTER);
-    }*/
 }

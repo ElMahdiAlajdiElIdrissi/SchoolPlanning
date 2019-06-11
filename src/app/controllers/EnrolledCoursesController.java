@@ -10,12 +10,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
+/**
+ * public class which controls our EnrolledCoursesFXML
+ */
 public class EnrolledCoursesController implements Initializable {
 
 
@@ -25,6 +27,12 @@ public class EnrolledCoursesController implements Initializable {
     @FXML
     private ListView table;
 
+    /**
+     * private method used for fetching the courses a teacher teaches, based on teacher's name, or name of a course
+     * Default result gives you the courses the student is already enlisted in
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void searchTeacherOrStudent(ActionEvent event)throws IOException {
         DataBase db = new DataBase();
@@ -50,7 +58,7 @@ public class EnrolledCoursesController implements Initializable {
             }
             if (teacherAndCourse.isEmpty()) {
                 SceneManager.alertError("The teacher/course you were looking for doesn't exist");
-                teacherAndCourse.add("These are the courses you already enlisted in: ");
+                teacherAndCourse.add("These are the courses you're already enlisted in: ");
                 teacherAndCourse.add(enlistedCourses.toString());
             }
             table.setItems(teacherAndCourse);
@@ -63,6 +71,11 @@ public class EnrolledCoursesController implements Initializable {
     @FXML
     private Button back;
 
+    /**
+     * private method for the back button which will bring us back to the SchoolScheduleScene
+     * @param ev
+     * @throws IOException
+     */
     @FXML
     private void back(ActionEvent ev) throws IOException {
         ((Stage) back.getScene().getWindow()).setScene(SceneManager.getSchoolScheduleScene());
@@ -70,6 +83,11 @@ public class EnrolledCoursesController implements Initializable {
 
     private StringBuilder enlistedCourses = new StringBuilder();
 
+    /**
+     * public method used for fetching all the courses a student's enrolled in
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         DataBase db = new DataBase();
@@ -79,7 +97,6 @@ public class EnrolledCoursesController implements Initializable {
             ResultSet rs = stm.executeQuery();
             while(rs.next()){
                 enlistedCourses.append(rs.getString(1) + "\n");
-//                System.out.println(rs.getString(1));
             }
         }catch(SQLException ex){
             ex.printStackTrace();

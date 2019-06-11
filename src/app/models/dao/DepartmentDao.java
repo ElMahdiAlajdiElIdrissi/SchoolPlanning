@@ -1,7 +1,6 @@
 package app.models.dao;
 
 import app.models.entities.Department;
-
 import java.sql.*;
 
 public class DepartmentDao {
@@ -43,6 +42,12 @@ public class DepartmentDao {
         this.password = password;
     }
 
+    /**
+     * public method for fetching all the departments with their info
+     * @param id
+     * @return
+     * @throws SQLException
+     */
     public Department getDepartmentByID(int id) throws SQLException {
         try (Connection conn = getConnection();
              PreparedStatement statement = conn.prepareStatement("SELECT * FROM department WHERE Id = ?")) {
@@ -62,6 +67,11 @@ public class DepartmentDao {
         }
     }
 
+    /**
+     * public method for updating an already existing department
+     * @param department
+     * @throws SQLException
+     */
     public void updateDepartment(Department department) throws SQLException {
         try (Connection conn = getConnection();
              PreparedStatement statement = conn.prepareStatement("UPDATE department SET Department_Name=? WHERE Id=? ")) {
@@ -73,6 +83,11 @@ public class DepartmentDao {
         }
     }
 
+    /**
+     * public method for creating a new department
+     * @param departmentName
+     * @throws SQLException
+     */
     public void insertNewDepartment(String departmentName) throws SQLException{
         try (Connection conn = getConnection();
              PreparedStatement statement = conn.prepareStatement("INSERT IGNORE INTO Department (Department_Name)" +
@@ -83,6 +98,11 @@ public class DepartmentDao {
         }
     }
 
+    /**
+     * private method for easy connection setup
+     * @return
+     * @throws SQLException
+     */
     private Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, user, password);
     }

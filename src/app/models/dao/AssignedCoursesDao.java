@@ -1,9 +1,11 @@
 package app.models.dao;
 
 import app.models.entities.AssignedCourse;
-
 import java.sql.*;
 
+/**
+ * Data-Access-Objects class created for AssignedCourses
+ */
 public class AssignedCoursesDao {
     private String url;
     private String user;
@@ -43,6 +45,12 @@ public class AssignedCoursesDao {
         this.password = password;
     }
 
+    /**
+     * public method for fetching all the courses a teacher teaches
+     * @param id
+     * @return
+     * @throws SQLException
+     */
     public AssignedCourse getAssignedCourseById(int id) throws SQLException {
         try (Connection conn = getConnection();
              PreparedStatement statement = conn.prepareStatement("SELECT * FROM assignedcourses WHERE Id = ?")) {
@@ -62,6 +70,11 @@ public class AssignedCoursesDao {
         }
     }
 
+    /**
+     * public method for updating a teacher's assigned course(s)
+     * @param course
+     * @throws SQLException
+     */
     public void updateAssignedCourse(AssignedCourse course) throws SQLException {
         try (Connection conn = getConnection();
              PreparedStatement statement = conn.prepareStatement("UPDATE assignedcourses SET Teacher_Id WHERE Course_Id=? ")) {
@@ -73,7 +86,12 @@ public class AssignedCoursesDao {
         }
     }
 
-    public void insertNewAssignedCourse(int teacherId) throws SQLException {
+    /**
+     * public method for assigning a new course to a teacher UNUSED! INCORRECT STATEMENT!
+     * @param teacherId
+     * @throws SQLException
+     */
+    /*public void insertNewAssignedCourse(int teacherId) throws SQLException {
         try (Connection conn = getConnection();
              PreparedStatement statement = conn.prepareStatement("INSERT IGNORE INTO course (Teacher_Id)" +
                      " VALUES  + (" + teacherId + "),")) {
@@ -81,8 +99,13 @@ public class AssignedCoursesDao {
         } catch (SQLException se) {
             throw new SQLException("You tried to create a new 'assigned course' and failed");
         }
-    }
+    }*/
 
+    /**
+     * private method for easy connection setup
+     * @return
+     * @throws SQLException
+     */
     private Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, user, password);
     }

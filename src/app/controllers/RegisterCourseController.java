@@ -12,18 +12,25 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import app.models.dao.EnrolledCoursesDao;
 import app.models.entities.Course;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * public class which controls our RegisterCourseFXML
+ */
 public class RegisterCourseController implements Initializable {
 
     @FXML
     private Button back;
 
+    /**
+     * private method for the back button which will bring us back to the SchoolScheduleScene
+     * @param ev
+     * @throws IOException
+     */
     @FXML
     private void back(ActionEvent ev) throws IOException {
         ((Stage) back.getScene().getWindow()).setScene(SceneManager.getSchoolScheduleScene());
@@ -32,6 +39,11 @@ public class RegisterCourseController implements Initializable {
     @FXML
     private ChoiceBox<String> choiceBox = new ChoiceBox<>();
 
+    /**
+     * public method for retrieving all the courses a student's enrolled in, putting them in a choicebox
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         DataBase db = new DataBase();
@@ -59,6 +71,11 @@ public class RegisterCourseController implements Initializable {
     @FXML
     private TextField Password;
 
+    /**
+     * private method used for enrolling students into a new course
+     * @param ev
+     * @throws IOException
+     */
     @FXML
     private void registerCourse(ActionEvent ev) throws IOException{
         DataBase db = new DataBase();

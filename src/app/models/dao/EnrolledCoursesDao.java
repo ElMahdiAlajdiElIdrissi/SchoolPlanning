@@ -2,11 +2,13 @@ package app.models.dao;
 
 import app.models.entities.Course;
 import app.models.entities.EnrolledCourse;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Data-Access-Objects class created for EnrolledCourses
+ */
 public class EnrolledCoursesDao {
     private String url;
     private String user;
@@ -46,6 +48,12 @@ public class EnrolledCoursesDao {
         this.password = password;
     }
 
+    /**
+     * public class for fetching all the enrolledcourses with all their info
+     * @param id
+     * @return
+     * @throws SQLException
+     */
     public EnrolledCourse getEnrolledCourses(int id) throws SQLException {
         try (Connection conn = getConnection();
              PreparedStatement statement = conn.prepareStatement("SELECT * FROM enrolledcourses WHERE Course_Id = ?")) {
@@ -65,6 +73,11 @@ public class EnrolledCoursesDao {
         }
     }
 
+    /**
+     * public method for updating an already existing EnrolledCourse
+     * @param Course
+     * @throws SQLException
+     */
     public void updateEnrolledCourse(EnrolledCourse Course) throws SQLException {
         try (Connection conn = getConnection();
              PreparedStatement statement = conn.prepareStatement("UPDATE enrolledcourses SET Student_Id=? WHERE Course_Id=? ")) {
@@ -76,6 +89,11 @@ public class EnrolledCoursesDao {
         }
     }
 
+    /**
+     * public method for fetching all the enrolledcourses for a student
+     * @param studentId
+     * @return
+     */
     public List<EnrolledCourse> getAllEnrolledCourses(int studentId){
         List<EnrolledCourse> s = new ArrayList<>();
         try(Connection conn = getConnection();
@@ -94,6 +112,11 @@ public class EnrolledCoursesDao {
         return s;
     }
 
+    /**
+     * public method for fetching all existing courses a student's NOT enrolled in
+     * @param id
+     * @return
+     */
     public List<Course> getAllNotEnrolledCourses(int id){
         List<Course> s = new ArrayList<>();
         try(Connection conn = getConnection();
@@ -114,6 +137,11 @@ public class EnrolledCoursesDao {
         return s;
     }
 
+    /**
+     * public method for linking a course to a student
+     * @param studentID
+     * @throws SQLException
+     */
     public void insertNewEnrolledCourse(int studentID) throws SQLException{
         try (Connection conn = getConnection();
              PreparedStatement statement = conn.prepareStatement("INSERT IGNORE INTO course (Student_Id)" +
@@ -124,6 +152,11 @@ public class EnrolledCoursesDao {
         }
     }
 
+    /**
+     * private method for easy connection setup
+     * @return
+     * @throws SQLException
+     */
     private Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, user, password);
     }

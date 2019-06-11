@@ -9,18 +9,26 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
+/**
+ * public class which controls our EnlisterdStudentsFXML
+ */
 public class EnlisterdStudentsController implements Initializable {
+
     @FXML
     private ListView table;
 
     private StringBuilder enlistedStudents = new StringBuilder();
 
+    /**
+     * public method used for fetching enlisted student's names
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         DataBase db = new DataBase();
@@ -30,7 +38,6 @@ public class EnlisterdStudentsController implements Initializable {
             ResultSet rs = stm.executeQuery();
             while(rs.next()){
                 enlistedStudents.append(rs.getString(1) + "\n");
-//                System.out.println(rs.getString(1));
             }
         }catch(SQLException ex){
             ex.printStackTrace();
@@ -45,6 +52,11 @@ public class EnlisterdStudentsController implements Initializable {
     @FXML
     private Button back;
 
+    /**
+     * private method for the back button which will bring us back to the TeachersSchedule
+     * @param ev
+     * @throws IOException
+     */
     @FXML
     private void back(ActionEvent ev) throws IOException {
         ((Stage) back.getScene().getWindow()).setScene(SceneManager.getTeacherSchedule());

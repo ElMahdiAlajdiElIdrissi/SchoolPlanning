@@ -2,6 +2,9 @@ package app.models.entities;
 
 import java.io.Serializable;
 
+/**
+ * public class for getters and setters from an Object which exists in our database
+ */
 public class AssignedCourse implements Serializable {
     private int courseId;
     private int teacherId;

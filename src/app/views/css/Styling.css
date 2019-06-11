@@ -29,7 +29,7 @@
 }
 
 .root {
-    /*-fx-background-image: url("backGround.jpg");*/
+    /*-fx-background-image: url("backGround.jpg");*/    /*didn't work in everyone's IntelliJ*/
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
     -fx-background-color: #383838;

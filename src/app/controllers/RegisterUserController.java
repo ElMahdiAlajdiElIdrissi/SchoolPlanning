@@ -7,10 +7,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.*;
 
+/**
+ * /**
+ *  * public class which controls our RegisterUserFXML
+ *  */
 public class RegisterUserController {
     @FXML
     private Button cancelRegistration;
@@ -33,7 +36,11 @@ public class RegisterUserController {
     @FXML
     private PasswordField confirmPassword;
 
-
+    /**
+     * public method used for creating a new Student user
+     * @param ev
+     * @throws IOException
+     */
     public void createUser(ActionEvent ev) throws IOException {
         DataBase db = new DataBase();
         String un = userName.getText().trim().equals("")?null:userName.getText().trim();
@@ -65,7 +72,6 @@ public class RegisterUserController {
                                 stmt2.executeUpdate();
                                 SceneManager.alertVerify("You have registered successfully");
                             }else {
-//                        System.out.println("Error: passwords do not match");
                                 SceneManager.alertError("Please enter matching passwords!");
                             }
                         }
@@ -96,7 +102,6 @@ public class RegisterUserController {
                                 stmt2.executeUpdate();
                                 SceneManager.alertVerify("You have registered successfully");
                             }else {
-//                        System.out.println("Error: passwords do not match");
                                 SceneManager.alertError("Please enter matching passwords!");
                             }
                         }
@@ -111,6 +116,11 @@ public class RegisterUserController {
         }
     }
 
+    /**
+     * private method for the cancel button which will bring us back to the LoginScene
+     * @param ev
+     * @throws IOException
+     */
     public void cancelRegistration(ActionEvent ev) throws IOException {
         ((Stage) cancelRegistration.getScene().getWindow()).setScene(SceneManager.getLoginScene());
     }

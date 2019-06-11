@@ -1,5 +1,8 @@
 package app.controllers;
 
+/**
+ * public class used for getting and setting ID's used for retrieving data from the database
+ */
 public class GlobalVars {
     private static int studentId;
     private static int courseId;

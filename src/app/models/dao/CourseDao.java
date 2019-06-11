@@ -1,9 +1,11 @@
 package app.models.dao;
 
 import app.models.entities.Course;
-
 import java.sql.*;
 
+/**
+ * Data-Access-Objects class created for Course
+ */
 public class CourseDao {
     private String url;
     private String user;
@@ -43,6 +45,12 @@ public class CourseDao {
         this.password = password;
     }
 
+    /**
+     * public method for fetching all the courses with their info
+     * @param id
+     * @return
+     * @throws SQLException
+     */
     public Course getCourseById(int id) throws SQLException {
         try (Connection conn = getConnection();
              PreparedStatement statement = conn.prepareStatement("SELECT * FROM course WHERE Id = ?")) {
@@ -65,6 +73,11 @@ public class CourseDao {
         }
     }
 
+    /**
+     * public method for updating an already existing course
+     * @param course
+     * @throws SQLException
+     */
     public void updateCourse(Course course) throws SQLException{
         try (Connection conn = getConnection();
         PreparedStatement statement = conn.prepareStatement("UPDATE course SET Course_Name=?, Start_Date=?, End_Date =?, Department_Id=? WHERE Id=? ")){
@@ -79,6 +92,14 @@ public class CourseDao {
         }
     }
 
+    /**
+     * public method for creating a new course
+     * @param courseName
+     * @param startDate
+     * @param endDate
+     * @param departmentId
+     * @throws SQLException
+     */
     public void insertNewCourse(String courseName, String startDate, String endDate, int departmentId) throws SQLException{
         try (Connection conn = getConnection();
         PreparedStatement statement = conn.prepareStatement("INSERT IGNORE INTO course (Course_Name, Start_Date, End_Date, Department_Id)" +
@@ -89,7 +110,11 @@ public class CourseDao {
         }
     }
 
-
+    /**
+     * private method for easy connection setup
+     * @return
+     * @throws SQLException
+     */
     private Connection getConnection() throws SQLException{
         return DriverManager.getConnection(url, user, password);
     }

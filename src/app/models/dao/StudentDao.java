@@ -5,6 +5,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Data-Access-Objects class created for Student
+ */
 public class StudentDao {
     private String url;
     private String user;
@@ -44,6 +47,12 @@ public class StudentDao {
         this.password = password;
     }
 
+    /**
+     * public method for fetching a student by his ID
+     * @param id
+     * @return
+     * @throws SQLException
+     */
     public Student getStudentByID(int id) throws SQLException {
         try (Connection conn = getConnection();
              PreparedStatement statement = conn.prepareStatement("SELECT * FROM student WHERE Id = ?")) {
@@ -66,6 +75,11 @@ public class StudentDao {
         }
     }
 
+    /**
+     * public method for changing a student's personal data
+     * @param student
+     * @throws SQLException
+     */
     public void updateStudent(Student student) throws SQLException {
         try (Connection conn = getConnection();
              PreparedStatement statement = conn.prepareStatement("UPDATE student SET First_Name=?, Last_Name=?, User_Name=?, Password=? WHERE Id=? ")) {
@@ -80,6 +94,10 @@ public class StudentDao {
         }
     }
 
+    /**
+     * public method for returning all registered students
+     * @return
+     */
     public List<Student> getAllStudents(){
         List<Student> s = new ArrayList<>();
         try(Connection conn = getConnection();
@@ -99,6 +117,14 @@ public class StudentDao {
         return s;
     }
 
+    /**
+     * public method for registering a new student
+     * @param firstName
+     * @param lastName
+     * @param userName
+     * @param password
+     * @throws SQLException
+     */
     public void insertNewStudent(String firstName, String lastName, String userName, String password) throws SQLException{
         try (Connection conn = getConnection();
              PreparedStatement statement = conn.prepareStatement("INSERT IGNORE INTO course (First_Name, Last_Name, User_Name, Password)" +
@@ -109,6 +135,11 @@ public class StudentDao {
         }
     }
 
+    /**
+     * private method for easy connection setup
+     * @return
+     * @throws SQLException
+     */
     private Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, user, password);
     }

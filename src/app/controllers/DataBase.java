@@ -10,11 +10,14 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * public class in which we set up our primary connection with the database and read the first executable scripts for base operations
+ */
 public class DataBase {
     final String URL = "jdbc:mysql://localhost/SchoolPlanner?serverTimezone=UTC";
     final String USERNAME = "root";
-    final String PASSWORD = "Desrath1990";
-//    final String PASSWORD = "root";
+    final String PASSWORD = "Desrath1990";  //Paul's private password
+//    final String PASSWORD = "root";       //everyone else's password to private database
 
     public DataBase() {
     }
@@ -31,6 +34,11 @@ public class DataBase {
         return PASSWORD;
     }
 
+    /**
+     * private method for reading in a textfile, e.g. SQL queries
+     * @param fileName
+     * @return a String containing all text from file
+     */
     private String readScript(String fileName){
         StringBuilder sb = new StringBuilder();
         try {
@@ -64,16 +72,19 @@ public class DataBase {
         }
     }
 
+    /**
+     * private method intented for sorting our results. UNFINISHED
+     */
     /*   private static String sortData(String sortOnWhat) {
-        String giveBack = "SELECT ".concat(sortOnWhat).concat(" from Beers order by ").concat(sortOnWhat);
+        String giveBack = "SELECT ".concat(sortOnWhat).concat(" FROM assignedcourses ORDER BY ").concat(sortOnWhat);
         if (counter < 2) {
             switch (counter) {
                 case 0:
-                    giveBack.concat(" asc");
+                    giveBack.concat(" ASC");
                     counter++;
                     break;
                 case 1:
-                    giveBack.concat(" desc");
+                    giveBack.concat(" DESC");
                     counter++;
                     break;
             }
@@ -81,11 +92,5 @@ public class DataBase {
             counter = 0;
         }
         return giveBack;
-    }*/
-
-   /* private static String dataInput(){
-        System.out.println("Please type the columnname of what you'd like sorted");
-        Scanner keyboard = new Scanner(System.in);
-        return keyboard.nextLine();
     }*/
 }
