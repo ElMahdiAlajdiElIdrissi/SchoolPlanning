@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+
+<?import java.net.URL?>
+<Group xmlns="http://javafx.com/javafx"
+       xmlns:fx="http://javafx.com/fxml"
+       fx:controller="app.controllers.LoginController" styleClass="root">
+    <stylesheets>
+        <URL value="@css/Styling.css"/>
+    </stylesheets>
+    <VBox layoutX="25" layoutY="25" spacing="20" fx:id="labels">
+        <Label id="userNameLabel" text="Username: "/>
+        <Label id="passwordLabel" text="Password: "/>
+    </VBox>
+
+    <VBox layoutX="100" layoutY="25" spacing="10" fx:id="inputs">
+        <TextField id="userNameTextField" fx:id="userName" promptText="Username" prefWidth="200"/>
+        <PasswordField id="passWordTextField" fx:id="password" promptText="Password" prefWidth="200"/>
+    </VBox>
+
+    <HBox layoutX="60" layoutY="100" spacing="10" fx:id="buttons">
+        <Button id="registerButton" fx:id="register" text="Register" prefWidth="75" onAction="#registerAction"/>
+        <Button id="loginButton" fx:id="login" text="Login" prefWidth="75" onAction="#loginAction"/>
+        <Button id="back" fx:id="back" text="Back" prefWidth="75" onAction="#back"/>
+    </HBox>
+</Group>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import java.net.URL?>
+<Group xmlns:fx="http://javafx.com/fxml" fx:controller="app.controllers.RegisterCourseController" styleClass="root">
+    <stylesheets>
+        <URL value="@css/Styling.css"/>
+    </stylesheets>
+
+        <HBox layoutX="10" layoutY="20" spacing="20">
+            <Button fx:id="back" text="Home " onAction="#back"/>
+            <Label text=" Voor welke les wil je inschrijven."/>
+            <ChoiceBox fx:id="choiceBox" prefWidth="150"/>
+
+        </HBox>
+
+        <HBox layoutX="10" layoutY="60">
+            <Label text="om te confirmeren vul je gebruikersnaam en wachtwoord in."/>
+        </HBox>
+        <VBox layoutX="10" layoutY="100" spacing="10">
+            <TextField fx:id="UserName" promptText="Gebruikersnaam:"/>
+            <PasswordField fx:id="Password" promptText="Wachtwoord" prefWidth="300"/>
+        </VBox>
+
+        <HBox layoutX="10" layoutY="175">
+            <Button fx:id="confirm" text="Schrijf in" onAction="#registerCourse"/>
+        </HBox>
+
+
+
+</Group>
