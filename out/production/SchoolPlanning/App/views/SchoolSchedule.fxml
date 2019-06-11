@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.Group?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="App.controllers.SchoolScheduleController">
+    <stylesheets>
+        <URL value="@css/StylingHoofdPagina.css"/>
+    </stylesheets>
+    <top>
+        <HBox spacing="20">
+            <padding>
+                <Insets left="600" top="100">
+
+                </Insets>
+            </padding>
+            <Label text="Welcome to your schoolplanning app"/>
+            <Button fx:id="logout" text="Logout" maxWidth="200"
+                    onAction="#logout"/>
+        </HBox>
+    </top>
+
+
+    <center>
+        <Group>
+            <VBox spacing="5">
+                <Button fx:id="enrolledCourses" text="Gevolgde Cursussen" maxWidth="200"
+                        onAction="#clickedOnEnrolledCourses"/>
+                <Button fx:id="registerCourses" text="Inschrijven cursussen" maxWidth="200"
+                        onAction="#clickedOnRegisterCourses"/>
+
+            </VBox>
+        </Group>
+    </center>
+
+
+</BorderPane>
+
