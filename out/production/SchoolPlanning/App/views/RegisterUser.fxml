@@ -12,7 +12,7 @@
        fx:controller="App.controllers.RegisterUserController">
 
     <stylesheets>
-        <URL value="@css/RegisterStyling.css"/>
+        <URL value="@css/Styling.css"/>
     </stylesheets>
 
     <VBox layoutX="25" layoutY="25" spacing="20">

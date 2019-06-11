@@ -11,9 +11,9 @@
 <?import java.net.URL?>
 <Group xmlns="http://javafx.com/javafx"
        xmlns:fx="http://javafx.com/fxml"
-       fx:controller="App.controllers.LoginController">
+       fx:controller="App.controllers.LoginController" styleClass="root">
     <stylesheets>
-        <URL value="@css/LoginStyling.css"/>
+        <URL value="@css/Styling.css"/>
     </stylesheets>
     <VBox layoutX="25" layoutY="25" spacing="20" fx:id="labels">
         <Label id="userNameLabel" text="Username: "/>

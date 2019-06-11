@@ -13,7 +13,7 @@ public class SceneManager {
 
     public static Scene getSchoolScheduleScene() throws IOException {
         Parent root = FXMLLoader.load(SchoolApp.class.getResource("./views/SchoolSchedule.fxml"));
-        return new Scene(root, 425, 350);
+        return new Scene(root, 350, 250);
     }
 
     public static Scene getEnrolledCoursesScene() throws IOException {
@@ -47,7 +47,7 @@ public class SceneManager {
 
     public static Scene getTeacherSchedule() throws IOException{
         Parent root = FXMLLoader.load(SchoolApp.class.getResource("./views/TeacherSchedule.fxml"));
-        return new Scene(root, 425, 350);
+        return new Scene(root, 400, 300);
     }
 
     public static Scene getRegisterScene() throws IOException {

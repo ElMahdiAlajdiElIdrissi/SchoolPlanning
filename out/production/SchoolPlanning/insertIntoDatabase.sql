@@ -1,39 +1,57 @@
-
-INSERT IGNORE INTO Departement (Departement_Naam)
+INSERT IGNORE INTO Department (Department_Name)
 VALUES
 ("Informatica"),
 ("Business"),
 ("Economie");
 
-INSERT IGNORE INTO Docent (Voor_Naam, Achter_Naam, Departement_Id, Password, Gebruikers_Naam)
+INSERT IGNORE INTO Teacher (First_Name, Last_Name, Department_Id, User_Name, Password)
 VALUES
-("Jonathan", "Brites", 1, "Brites", "Jonathan"),
-("Samuel", "L. Jackson", 2, "L. Jackson", "Samuel"),
-("Dick", "Johnson", 3, "Johnson", "Dick");
+("Jonathan", "Brites", 1, "Jonathan", "Brites"),
+("Samuel", "L. Jackson", 2, "Samuel", "L. Jackson"),
+("Samuel", "Tarly", 3, "Sam", "Tarly"),
+("Lesley", "Forn", 1, "Lesley", "Forn");
 
-INSERT IGNORE INTO Cursus (Naam_Cursus, Start_Datum, Eind_Datum, Departement_Id)
+INSERT IGNORE INTO Course (Course_Name, Start_Date, End_Date, Department_Id)
 VALUES
 ("Java", "2018-09-24", "2019-06-12", 1),
-("MotherFucker", "2018-09-17", "2019-02-15", 2),
-("Geldstroom","2018-10-10","2019-02-10",3);
+(".NET", "2019-01-12", "2019-06-10", 1),
+("PHP", "2018-09-24", "2019-06-12", 1),
+("Marketing Strategie", "2018-10-17", "2019-03-15", 2),
+("Accountancy Fiscaliteit", "2019-10-17", "2020-06-15", 2),
+("Financiën en verzekeringswezen", "2019-09-17", "2020-04-15", 2),
+("Geldstroom","2019-10-10","2020-01-28",3);
 
-INSERT IGNORE INTO Student (First_Name , Last_Name, Gebruikers_Naam, Passwoord)
+INSERT IGNORE INTO Student (First_Name , Last_Name, User_Name, Password)
 VALUES
-("Paul", "Gerarts", "paul", "gerarts"),
+("Paul", "Gerarts", "paul", "paul"),
 ("Ruben", "Neven", "ruben", "ruben"),
-("Mitch", "Munix", "mitch", "mitch");
+("Mahdi", "Alajdi El Idrissi", "mahdi", "mahdi"),
+("Mitch", "Munix", "mitch", "mitch"),
+("Jonas", "Volders", "jonas", "jonas"),
+("Yasin", "Keskin", "yasin", "yasin");
 
-INSERT IGNORE INTO IngeschrevenCursussen (Cursus_Id, Student_Id)
+INSERT IGNORE INTO EnrolledCourses (Student_Id, Course_Id)
 VALUES
 (1,1),
-(1,2),
-(1,3),
-(2,3),
-(2,2),
-(3,1);
+(1,4),
+(2,1),
+(2,4),
+(3,1),
+(3,2),
+(3,3),
+(4,1),
+(4,7),
+(5,1),
+(5,7),
+(6,1),
+(6,5);
 
-INSERT IGNORE INTO ToegewezenCursus (Cursus_Id, Docent_Id)
+INSERT IGNORE INTO AssignedCourses (Teacher_Id, Course_Id)
 VALUES
 (1,1),
-(2,2),
-(3,3);
+(2,4),
+(2,5),
+(3,6),
+(3,7),
+(4,2),
+(4,3);

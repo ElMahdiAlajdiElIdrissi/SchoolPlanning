@@ -29,5 +29,32 @@
 }
 
 .root {
+    /*-fx-background-image: url("backGround.jpg");*/
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
     -fx-background-color: #383838;
+}
+
+.label{
+    -fx-font-family: 'Arial Black';
+    -fx-text-fill: '#4ABAFF';
+    /*-fx-font-size: 20;*/
+    -fx-font-weight: bold;
+}
+
+.text-field{
+    -fx-border-radius: 50;
+    -fx-background-radius: 22;
+}
+
+.button{
+    -fx-background-color:'#4ABAFF';
+    -fx-text-fill: '#FFB34A';
+    -fx-font-family: 'Arial Black';
+    -fx-border-radius: 50;
+    -fx-background-radius: 20;
+}
+
+.button:hover{
+    -fx-font-weight: bold;
 }

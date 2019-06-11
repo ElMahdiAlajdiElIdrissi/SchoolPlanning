@@ -10,36 +10,30 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.Group?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="App.controllers.SchoolScheduleController">
+<Group xmlns:fx="http://javafx.com/fxml" fx:controller="App.controllers.SchoolScheduleController" styleClass="root">
     <stylesheets>
-        <URL value="@css/StylingHoofdPagina.css"/>
+        <URL value="@css/Styling.css"/>
     </stylesheets>
-    <top>
-        <HBox spacing="20">
-            <padding>
-                <Insets left="600" top="100">
 
-                </Insets>
-            </padding>
-            <Label text="Welcome to your schoolplanning app"/>
-            <Button fx:id="logout" text="Logout" maxWidth="200"
-                    onAction="#logout"/>
-        </HBox>
-    </top>
+    <HBox layoutX="70" layoutY="10">
+        <Label text="Welcome to your schoolplanning app"/>
+    </HBox>
 
 
-    <center>
-        <Group>
-            <VBox spacing="5">
-                <Button fx:id="enrolledCourses" text="Gevolgde Cursussen" maxWidth="200"
-                        onAction="#clickedOnEnrolledCourses"/>
-                <Button fx:id="registerCourses" text="Inschrijven cursussen" maxWidth="200"
-                        onAction="#clickedOnRegisterCourses"/>
+    <VBox layoutX="100" layoutY="80" spacing="10">
+        <Button fx:id="enrolledCourses" text="Gevolgde Cursussen" maxWidth="200"
+                onAction="#clickedOnEnrolledCourses"/>
+        <Button fx:id="registerCourses" text="Inschrijven cursussen" maxWidth="200"
+                onAction="#clickedOnRegisterCourses"/>
 
-            </VBox>
-        </Group>
-    </center>
+    </VBox>
 
 
-</BorderPane>
+    <HBox layoutX="150" layoutY="150">
+        <Button fx:id="logout" text="Logout" maxWidth="200"
+                onAction="#logout"/>
+    </HBox>
+
+
+</Group>
 

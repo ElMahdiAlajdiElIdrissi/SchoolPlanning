@@ -36,75 +36,79 @@ public class RegisterUserController {
 
     public void createUser(ActionEvent ev) throws IOException {
         DataBase db = new DataBase();
-        String un = userName.getText().trim();
-        String fn = firstName.getText().trim();
-        String ln = lastName.getText().trim();
-        String pw = password.getText().trim();
-        String cpw = confirmPassword.getText().trim();
+        String un = userName.getText().trim().equals("")?null:userName.getText().trim();
+        String fn = firstName.getText().trim().equals("")?null:firstName.getText().trim();
+        String ln = lastName.getText().trim().equals("")?null:lastName.getText().trim();
+        String pw = password.getText().trim().equals("")?null:password.getText().trim();
+        String cpw = confirmPassword.getText().trim().equals("")?null:confirmPassword.getText().trim();
 
-        if(GlobalVars.isStudentOrDocent()){
-            String sql = "select User_Name from Student where User_Name=?";
-            String sql2 = "insert ignore into student(First_Name , Last_Name, User_Name, Password) VALUES (?, ?, ?, ?)";
+        if(!(un == null || fn == null || ln == null || pw == null || cpw == null)){
+            if(GlobalVars.isStudentOrDocent()){
+                String sql = "select User_Name from Student where User_Name=?";
+                String sql2 = "insert ignore into student(First_Name , Last_Name, User_Name, Password) VALUES (?, ?, ?, ?)";
 
-            try(Connection conn = DriverManager.getConnection(db.getURL(), db.getUSERNAME(), db.getPASSWORD());
-                PreparedStatement stmt = conn.prepareStatement(sql);
-                PreparedStatement stmt2 = conn.prepareStatement(sql2)){
+                try(Connection conn = DriverManager.getConnection(db.getURL(), db.getUSERNAME(), db.getPASSWORD());
+                    PreparedStatement stmt = conn.prepareStatement(sql);
+                    PreparedStatement stmt2 = conn.prepareStatement(sql2)){
 
-                stmt.setString(1,un);
+                    stmt.setString(1,un);
 
-                try(ResultSet rs = stmt.executeQuery()){
-                    if(rs.next()){
-                        SceneManager.alertError("That user already exits!");
-                    }else{
-                        if(pw.equals(cpw)){
-                            stmt2.setString(1,fn);
-                            stmt2.setString(2,ln);
-                            stmt2.setString(3,un);
-                            stmt2.setString(4,pw);
-                            stmt2.executeUpdate();
-                            SceneManager.alertVerify("You have registered successfully");
-                        }else {
+                    try(ResultSet rs = stmt.executeQuery()){
+                        if(rs.next()){
+                            SceneManager.alertError("That user already exits!");
+                        }else{
+                            if(pw.equals(cpw)){
+                                stmt2.setString(1,fn);
+                                stmt2.setString(2,ln);
+                                stmt2.setString(3,un);
+                                stmt2.setString(4,pw);
+                                stmt2.executeUpdate();
+                                SceneManager.alertVerify("You have registered successfully");
+                            }else {
 //                        System.out.println("Error: passwords do not match");
-                            SceneManager.alertError("Please enter matching passwords!");
+                                SceneManager.alertError("Please enter matching passwords!");
+                            }
                         }
                     }
+                }catch(SQLException ex){
+                    ex.printStackTrace();
                 }
-            }catch(SQLException ex){
-                ex.printStackTrace();
+            }else{
+                String sql = "select User_Name from Teacher where User_Name=?";
+                String sql2 = "insert ignore into Teacher(First_Name , Last_Name, Department_Id, User_Name, Password) VALUES (?, ?, ?, ?, ?)";
+
+                try(Connection conn = DriverManager.getConnection(db.getURL(), db.getUSERNAME(), db.getPASSWORD());
+                    PreparedStatement stmt = conn.prepareStatement(sql);
+                    PreparedStatement stmt2 = conn.prepareStatement(sql2)){
+
+                    stmt.setString(1,un);
+
+                    try(ResultSet rs = stmt.executeQuery()){
+                        if(rs.next()){
+                            SceneManager.alertError("That user already exits!");
+                        }else{
+                            if(pw.equals(cpw)){
+                                stmt2.setString(1,fn);
+                                stmt2.setString(2,ln);
+                                stmt2.setInt(3,1);
+                                stmt2.setString(4,un);
+                                stmt2.setString(5,pw);
+                                stmt2.executeUpdate();
+                                SceneManager.alertVerify("You have registered successfully");
+                            }else {
+//                        System.out.println("Error: passwords do not match");
+                                SceneManager.alertError("Please enter matching passwords!");
+                            }
+                        }
+                    }
+                }catch(SQLException ex){
+                    ex.printStackTrace();
+                }
             }
+            ((Stage) createUser.getScene().getWindow()).setScene(SceneManager.getLoginScene());
         }else{
-            String sql = "select User_Name from Teacher where User_Name=?";
-            String sql2 = "insert ignore into Teacher(First_Name , Last_Name, Department_Id, User_Name, Password) VALUES (?, ?, ?, ?, ?)";
-
-            try(Connection conn = DriverManager.getConnection(db.getURL(), db.getUSERNAME(), db.getPASSWORD());
-                PreparedStatement stmt = conn.prepareStatement(sql);
-                PreparedStatement stmt2 = conn.prepareStatement(sql2)){
-
-                stmt.setString(1,un);
-
-                try(ResultSet rs = stmt.executeQuery()){
-                    if(rs.next()){
-                        SceneManager.alertError("That user already exits!");
-                    }else{
-                        if(pw.equals(cpw)){
-                            stmt2.setString(1,fn);
-                            stmt2.setString(2,ln);
-                            stmt2.setInt(3,1);
-                            stmt2.setString(4,un);
-                            stmt2.setString(5,pw);
-                            stmt2.executeUpdate();
-                            SceneManager.alertVerify("You have registered successfully");
-                        }else {
-//                        System.out.println("Error: passwords do not match");
-                            SceneManager.alertError("Please enter matching passwords!");
-                        }
-                    }
-                }
-            }catch(SQLException ex){
-                ex.printStackTrace();
-            }
+            SceneManager.alertError("Please fill in all fields!");
         }
-        ((Stage) createUser.getScene().getWindow()).setScene(SceneManager.getLoginScene());
     }
 
     public void cancelRegistration(ActionEvent ev) throws IOException {
