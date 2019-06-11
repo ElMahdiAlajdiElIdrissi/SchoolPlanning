@@ -24,8 +24,8 @@ public class AssignedCoursesController implements Initializable {
 
     /**
      * private method for the back button which will bring us back to the teachersSchedule
-     * @param ev
-     * @throws IOException
+     * @param ev the necessary ActionEvent
+     * @throws IOException could throw an Input-Output Exception
      */
     @FXML
     private void back(ActionEvent ev) throws IOException {

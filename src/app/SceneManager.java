@@ -15,8 +15,8 @@ public class SceneManager {
 
     /**
      * public method for returning our SchoolScheduleScene
-     * @return
-     * @throws IOException
+     * @return a new Scene using the given root, width and height
+     * @throws IOException could throw an Input-Output Exception
      */
     public static Scene getSchoolScheduleScene() throws IOException {
         Parent root = FXMLLoader.load(SchoolApp.class.getResource("./views/SchoolSchedule.fxml"));
@@ -25,8 +25,8 @@ public class SceneManager {
 
     /**
      * public method for returning our EnrolledCoursesScene
-     * @return
-     * @throws IOException
+     * @return a new Scene using the given root, width and height
+     * @throws IOException could throw an Input-Output Exception
      */
     public static Scene getEnrolledCoursesScene() throws IOException {
         Parent root = FXMLLoader.load(SchoolApp.class.getResource("./views/EnrolledCourses.fxml"));
@@ -35,8 +35,8 @@ public class SceneManager {
 
     /**
      * public method for returning our TeacherAssignedCourses
-     * @return
-     * @throws IOException
+     * @return a new Scene using the given root, width and height
+     * @throws IOException could throw an Input-Output Exception
      */
     public static Scene getTeacherAssignedCourses() throws IOException {
         Parent root = FXMLLoader.load(SchoolApp.class.getResource("./views/AssignedCourses.fxml"));
@@ -45,8 +45,8 @@ public class SceneManager {
 
     /**
      * public method for returning our EnlistedStudents
-     * @return
-     * @throws IOException
+     * @return a new Scene using the given root, width and height
+     * @throws IOException could throw an Input-Output Exception
      */
     public static Scene getEnlistedStudents() throws IOException {
         Parent root = FXMLLoader.load(SchoolApp.class.getResource("./views/EnlistedStudents.fxml"));
@@ -55,8 +55,8 @@ public class SceneManager {
 
     /**
      * public method for returning our RegisterCourses
-     * @return
-     * @throws IOException
+     * @return a new Scene using the given root, width and height
+     * @throws IOException could throw an Input-Output Exception
      */
     public static Scene getRegisterCourses() throws IOException {
         Parent root = FXMLLoader.load(SchoolApp.class.getResource("./views/RegisterCourses.fxml"));
@@ -65,8 +65,8 @@ public class SceneManager {
 
     /**
      * public method for returning our LoginScene
-     * @return
-     * @throws IOException
+     * @return a new Scene using the given root, width and height
+     * @throws IOException could throw an Input-Output Exception
      */
     public static Scene getLoginScene() throws IOException {
         Parent root = FXMLLoader.load(SchoolApp.class.getResource("./views/Login.fxml"));
@@ -75,8 +75,8 @@ public class SceneManager {
 
     /**
      * public method for returning our StartupScene
-     * @return
-     * @throws IOException
+     * @return a new Scene using the given root, width and height
+     * @throws IOException could throw an Input-Output Exception
      */
     public static Scene getStartupScene() throws IOException{
         Parent root = FXMLLoader.load(SchoolApp.class.getResource("./views/Startup.fxml"));
@@ -85,8 +85,8 @@ public class SceneManager {
 
     /**
      * public method for returning our TeacherSchedule
-     * @return
-     * @throws IOException
+     * @return a new Scene using the given root, width and height
+     * @throws IOException could throw an Input-Output Exception
      */
     public static Scene getTeacherSchedule() throws IOException{
         Parent root = FXMLLoader.load(SchoolApp.class.getResource("./views/TeacherSchedule.fxml"));
@@ -95,8 +95,8 @@ public class SceneManager {
 
     /**
      * public method for returning our RegisterScene
-     * @return
-     * @throws IOException
+     * @return a new Scene using the given root, width and height
+     * @throws IOException could throw an Input-Output Exception
      */
     public static Scene getRegisterScene() throws IOException {
         Parent root = FXMLLoader.load(SchoolApp.class.getResource("./views/RegisterUser.fxml"));
@@ -106,8 +106,7 @@ public class SceneManager {
 
     /**
      * public method which creates a new Alert (pop-up)
-     * it accepts a String which will become the displaytext (content)
-     * @param text
+     * @param text accepts a String which will become the displaytext (content)
      */
     public static void alertError(String text){
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -122,8 +121,7 @@ public class SceneManager {
 
     /**
      * public method which creates a new Alert (pop-up)
-     * it accepts a String which will become the displaytext (content)
-     * @param text
+     * @param text it accepts a String which will become the displaytext (content)
      */
     public static void alertVerify(String text){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

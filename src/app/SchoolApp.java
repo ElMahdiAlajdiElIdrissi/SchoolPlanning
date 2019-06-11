@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 public class SchoolApp extends Application {
     /**
      * main-method in which we create our database tables and fill them with the necessary base objects, followed by the FX-launch
-     * @param args
+     * @param args the standard array of arguments to be executed
      */
     public static void main(String[] args) {
         DataBase db = new DataBase();
@@ -22,8 +22,8 @@ public class SchoolApp extends Application {
 
     /**
      * override-methode for creating our primaryStage window
-     * @param primaryStage
-     * @throws Exception
+     * @param primaryStage the stage upon which we'll be workign
+     * @throws Exception in order to catch variable Exceptions which could be thrown
      */
     @Override
     public void start(Stage primaryStage) throws Exception {
