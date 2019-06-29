@@ -95,6 +95,7 @@ public class RegisterCourseController implements Initializable {
         String sql = "select Id, User_Name, Password from Student where Id=? and User_Name=? and Password=?";
         String sql2 = "insert ignore into enrolledcourses(Student_Id, Course_Id) VALUES (?, ?)";
 
+        //TODO un en pw zullen nooit null zijn op dit punt
         if(course != null && un != null && pw != null ){
             try(Connection conn = DriverManager.getConnection(db.getURL(), db.getUSERNAME(), db.getPASSWORD());
                 PreparedStatement stmt = conn.prepareStatement(sql);

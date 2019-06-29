@@ -118,6 +118,7 @@ public class EnrolledCoursesDao {
      * @return
      */
     public List<Course> getAllNotEnrolledCourses(int id){
+        //TODO gebruik meaningful names voor de variables
         List<Course> s = new ArrayList<>();
         try(Connection conn = getConnection();
             PreparedStatement stm = conn.prepareStatement("select Id, Course_Name from course where Id <> all(select Course_Id from enrolledcourses where enrolledcourses.Student_Id = ?);")){
@@ -132,6 +133,7 @@ public class EnrolledCoursesDao {
             }
 
         }catch(SQLException ex){
+            //TODO inslikken is zelden verstandig, de gebruiker weet niet dat er iets fout gaat. (verschillende plaatsen)
             ex.printStackTrace();
         }
         return s;

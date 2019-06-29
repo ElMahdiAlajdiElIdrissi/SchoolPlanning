@@ -32,9 +32,11 @@ public class AssignedCoursesController implements Initializable {
         ((Stage) back.getScene().getWindow()).setScene(SceneManager.getTeacherSchedule());
     }
 
+    //TODO variabelen moeten vanboven in de class staan (veschillende plaatsen)
     @FXML
     private ListView table;
 
+    //TODO waarom is dit een instantie variabele? Dit wordt enkel gebruikt in de initiliaze methode (veschillende plaatsen)
     private StringBuilder assignedCourses = new StringBuilder();
 
     /**
@@ -45,6 +47,7 @@ public class AssignedCoursesController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         DataBase db = new DataBase();
+        //TODO waarom is dit niet in een DAO?
         try(Connection conn = DriverManager.getConnection(db.getURL(), db.getUSERNAME(), db.getPASSWORD());
             PreparedStatement stm = conn.prepareStatement("SELECT course.Course_Name from assignedcourses join course on assignedcourses.Course_Id = course.Id where Teacher_Id = ?")){
             stm.setInt(1, GlobalVars.getDocentId());

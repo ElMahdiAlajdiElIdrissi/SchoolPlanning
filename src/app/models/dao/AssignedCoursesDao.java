@@ -6,6 +6,7 @@ import java.sql.*;
 /**
  * Data-Access-Objects class created for AssignedCourses
  */
+//TODO alle dao's hebben de url/user/password + getConnection gemeenschappelijk waarom is deze logica niet in een super klasse geplaatst?
 public class AssignedCoursesDao {
     private String url;
     private String user;
@@ -66,6 +67,7 @@ public class AssignedCoursesDao {
                 }
             }
         } catch (SQLException se) {
+            //TODO waarom een SQL Exception opvangen op dan opnieuw een SQLException te gooien met minder informatie? (op verschillende plaatsen)
             throw new SQLException("Something went wrong");
         }
     }
@@ -86,6 +88,7 @@ public class AssignedCoursesDao {
         }
     }
 
+    //TODO niet nodig = weggooien
     /**
      * public method for assigning a new course to a teacher UNUSED! INCORRECT STATEMENT!
      * @param teacherId

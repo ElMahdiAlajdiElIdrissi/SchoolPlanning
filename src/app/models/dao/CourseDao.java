@@ -100,6 +100,7 @@ public class CourseDao {
      * @param departmentId
      * @throws SQLException
      */
+    //TODO 4 parameters is te veel, een instantie van Course kan hier dienen als parameter
     public void insertNewCourse(String courseName, String startDate, String endDate, int departmentId) throws SQLException{
         try (Connection conn = getConnection();
         PreparedStatement statement = conn.prepareStatement("INSERT IGNORE INTO course (Course_Name, Start_Date, End_Date, Department_Id)" +

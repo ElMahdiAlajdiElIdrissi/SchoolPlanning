@@ -7,6 +7,7 @@ public class GlobalVars {
     private static int studentId;
     private static int courseId;
     private static int docentId;
+    //TODO variabele naam 'student' was voldoende
     private static boolean studentOrDocent; //true==student, false==docent
 
     public static int getDocentId() {

@@ -114,6 +114,7 @@ public class SceneManager {
         alert.setHeaderText("Something went wrong");
         alert.setContentText(text);
         Optional<ButtonType> result = alert.showAndWait();
+        //TODO wat doen we hiermee?
         if (result.isPresent()) {
             ButtonType button = result.get();
         }
@@ -129,6 +130,7 @@ public class SceneManager {
         alert.setHeaderText("Everything went ok!");
         alert.setContentText(text);
         Optional<ButtonType> result = alert.showAndWait();
+        //TODO wat doen we hiermee?
         if (result.isPresent()) {
             ButtonType button = result.get();
         }
