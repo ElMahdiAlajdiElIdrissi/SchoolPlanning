@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"app"},{"l":"app.controllers"},{"l":"app.models.dao"},{"l":"app.models.entities"}]

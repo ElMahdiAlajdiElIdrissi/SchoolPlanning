@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import java.net.URL?>
+<FlowPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="app.controllers.EnlisterdStudentsController"
+          prefHeight="400.0" prefWidth="600.0">
+    <stylesheets>
+        <URL value="@css/Styling.css"/>
+    </stylesheets>
+
+    <HBox>
+        <Button fx:id="back" text="Home" onAction="#back"/>
+    </HBox>
+
+    <ListView fx:id="table">
+
+    </ListView>
+
+</FlowPane>

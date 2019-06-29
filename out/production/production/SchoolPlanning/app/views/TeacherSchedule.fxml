@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import java.net.URL?>
+<Group xmlns:fx="http://javafx.com/fxml" fx:controller="app.controllers.TeacherScheduleController" styleClass="root">
+    <stylesheets>
+        <URL value="@css/Styling.css"/>
+    </stylesheets>
+
+                <Label text="Welcome" layoutX="170" layoutY="60"/>
+                <VBox spacing="10" layoutY="100" layoutX="140">
+                    <Button fx:id="assignedCourse" text="Assigned Courses" maxWidth="200"
+                            onAction="#assignedCourses"/>
+                    <Button fx:id="enlistedStudent" text="Enlisted Students" maxWidth="200"
+                            onAction="#enlistedStudents"/>
+                    <Button fx:id="logout" text="Logout" maxWidth="200"
+                            onAction="#logout"/>
+                </VBox>
+
+                <!--<ScrollPane>
+                    <content>
+                        <ImageView>
+                            <Image url="@css/backGround.jpg"/>
+
+                        </ImageView>
+                    </content>
+                </ScrollPane>-->
+
+    </Group>
+
